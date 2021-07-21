@@ -1,25 +1,35 @@
-class SKU :
-    #a given SKU, broad family
-    def __init__(self,name, unit_cost, holding_cost, temp_requirements):
-        self.type_ID = None #ID for the type of ingredient ie Apple etc 
-        self.name = name #name of the ingredient
-        self.n_recipes = None #number of recipes containing the SKU
-        self.unit_cost = unit_cost #unit cost of thr SKU
-        self.holding_cost = holding_cost #Holding cost of the SKU
-        self.temp_requirements = temp_requirements #Temperature to hold it at
-        
-    def Recipes_containing(self,recipe_book):
-        n_recipe = 0 
-        for i in recipe_book:
-            if self.name in i:
-                n_recipe +=1
-            else: 
-                continue
-        self.n_recipes = n_recipe
+import pgeocode #may need to be installed at the copmmand line
+from collections import Counter
+
+dist = pgeocode.GeoDistance('GB')
+
+class Factory:
+    #class of factory 
+    def __init__(self,cost_weight,location):
+        self.Factory_ID = None
+        self.SKU_types = None #list of all the SKUs in the factory
+        self.cost_weight = cost_weight #a multipler for how effiecent the factory is
+        self.location = location #postcode of the factory
+        self.fact_inv = None
     
-    def SKU_ID(self,SID_dict):
-        if self.name in SID_dict:
-            self.type_ID = SID_dict[self.name]
+    def box_check(self,box_in):
+        #function to check if a factory can complete an order
+        check = all(item in box_in for item in self.SKU_types)
+        return check
+    
+    def cons_dist(self,order):
+        #Function to find the Haversine distance between the factory and the order
+        fact_dist = dist.query_postal_code(self.location, order.location)
+        return fact_dist
+    
+    def SKU_Holding(self,inventory):
+        #find all the unique items in the inventory
+        SKU_list = [*inventory]
+        self.SKU_types = SKU_list
+        
+    def Get_FID(self,FID_dict):
+        if self.location in FID_dict:
+            self.Factory_ID = FID_dict[self.location]
         else:
-            self.type_ID = len(SID_dict)
-            SID_dict[self.name] = self.type_ID
+            self.Factory_ID = len(FID_dict)
+            FID_dict[self.location] = self.Factory_ID

@@ -1,7 +1,7 @@
 class SKU :
-    #a given SKU
-    def __init__(self,type_ID,name, n_recipes, unit_cost, holding_cost, temp_requirements):
-        self.type_ID = type_ID #ID for the type of ingredient ie Apple etc 
+    #a given SKU, broad family
+    def __init__(self,name, unit_cost, holding_cost, temp_requirements):
+        self.type_ID = None #ID for the type of ingredient ie Apple etc 
         self.name = name #name of the ingredient
         self.n_recipes = None #number of recipes containing the SKU
         self.unit_cost = unit_cost #unit cost of thr SKU
@@ -16,3 +16,10 @@ class SKU :
             else: 
                 continue
         self.n_recipes = n_recipe
+    
+    def SKU_ID(self,SID_dict):
+        if self.name in SID_dict:
+            self.type_ID = SID_dict[self.name]
+        else:
+            self.type_ID = len(SID_dict)
+            SID_dict[self.name] = self.type_ID

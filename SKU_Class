@@ -11,14 +11,14 @@ class SKU :
     def Recipes_containing(self,recipe_book):
         n_recipe = 0 
         for i in recipe_book:
-            if self.name in i:
+            if self.name in recipe_book[i]: #see if the ingredient is in each recipe in the book
                 n_recipe +=1
             else: 
                 continue
         self.n_recipes = n_recipe
     
     def SKU_ID(self,SID_dict):
-        if self.name in SID_dict:
+        if self.name in SID_dict: 
             self.type_ID = SID_dict[self.name]
         else:
             self.type_ID = len(SID_dict)

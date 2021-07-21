@@ -1,0 +1,18 @@
+class SKU :
+    #a given SKU
+    def __init__(self,type_ID,name, n_recipes, unit_cost, holding_cost, temp_requirements):
+        self.type_ID = type_ID #ID for the type of ingredient ie Apple etc 
+        self.name = name #name of the ingredient
+        self.n_recipes = None #number of recipes containing the SKU
+        self.unit_cost = unit_cost #unit cost of thr SKU
+        self.holding_cost = holding_cost #Holding cost of the SKU
+        self.temp_requirements = temp_requirements #Temperature to hold it at
+        
+    def Recipes_containing(self,recipe_book):
+        n_recipe = 0 
+        for i in recipe_book:
+            if self.name in i:
+                n_recipe +=1
+            else: 
+                continue
+        self.n_recipes = n_recipe

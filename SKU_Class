@@ -18,8 +18,8 @@ class SKU :
         self.n_recipes = n_recipe
     
     def SKU_ID(self,SID_dict):
-        if self.name in SID_dict: 
+        if self.name in SID_dict: #if the information needs to be updated, but the 
             self.type_ID = SID_dict[self.name]
         else:
-            self.type_ID = len(SID_dict)
+            self.type_ID = len(SID_dict) #create a new entry in the list for the SKU
             SID_dict[self.name] = self.type_ID

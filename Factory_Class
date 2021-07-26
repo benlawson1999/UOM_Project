@@ -3,7 +3,7 @@ from collections import Counter
 class Factory:
     #class of factory 
     def __init__(self,cost_weight,location):
-        self.Factory_ID = None
+        self.Factory_ID =  next(Factory.Fid_iter)
         self.SKU_types = None #list
         self.cost_weight = cost_weight #a multipler for how effiecent the factory is
         self.location = location #postcode of the factory
@@ -44,10 +44,14 @@ class Factory:
         self.fact_inv = holding_total
         self.SKU_types = holding_total.keys()
 
-        
-    def Get_FID(self,FID_dict):
-        if self.location in FID_dict:
-            self.Factory_ID = FID_dict[self.location]
-        else:
-            self.Factory_ID = len(FID_dict)
-            FID_dict[self.location] = self.Factory_ID
+  
+
+def Factory_Dict(fact_list):
+    fact_dict={}
+    for i in fact_list:
+        fact_dict[eval(i+".Factory_ID")] = eval(i)
+    return fact_dict
+
+"""Factory((random.randint(50,200)/100),gb_pc._data["postal_code"][random.randint(0,27429)])
+code to Generate an automatic factory
+"""

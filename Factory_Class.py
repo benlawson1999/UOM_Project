@@ -1,6 +1,7 @@
 import pgeocode #may need to be installed at the copmmand line
 from collections import Counter
 class Factory:
+     Fid_iter = itertools.count()
     #class of factory 
     def __init__(self,cost_weight,location):
         self.Factory_ID =  next(Factory.Fid_iter)
@@ -52,6 +53,7 @@ def Factory_Dict(fact_list):
         fact_dict[eval(i+".Factory_ID")] = eval(i)
     return fact_dict
 
-"""Factory((random.randint(50,200)/100),gb_pc._data["postal_code"][random.randint(0,27429)])
-code to Generate an automatic factory
-"""
+
+for i in range(100):
+    Fact_i =Factory((random.randint(50,200)/100),gb_pc._data["postal_code"][random.randint(0,27429)])
+    Factories[i] = Fact_i

@@ -1,14 +1,15 @@
 class SKU:
-    __slots__ = ["type_id","name","unit_cost","holding_cost","temp_requirements","n_recipes","child_id","expiry"]
+    __slots__ = ["type_id", "name", "unit_cost", "holding_cost",
+                 "temp_requirements", "n_recipes", "child_id", "expiry"]
     # a given SKU, broad family
-    def __init__(self, type_id,**kwags):
-        self.type_id = type_id # ID for the type of ingredient ie Apple etc
+
+    def __init__(self, type_id: int, **kwargs):
+        self.type_id = type_id  # ID for the type of ingredient ie Apple etc
         self.n_recipes = None  # number of recipes containing the SKU
         self.child_id = None
         self.expiry = None
-        for key, value in kwags.items():
-            setattr(self,key,value)
-            
+        for key, value in kwargs.items():
+            setattr(self, key, value)
 
     def Recipes_containing(self, recipe_book):
         n_recipe = 0

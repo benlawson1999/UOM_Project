@@ -7,32 +7,40 @@ import sys
 from pathlib import Path
 
 sys.path.append(str(Path(".").absolute().parent))
+objects = {}
 
-objects =["factories","clients","orders","skus"]
-dic={}
-def generate_factories(data):
+
+def generate_factories(data: dict):
     """Code to generate factories"""
 
-    return [Factory( Factory_ID =key, **value)for key, value in data.items()]
-def generate_clients(data):
+    return [Factory(factory_id=key, **value)for key, value in data.items()]
+
+
+def generate_clients(data: dict):
     """Code to generate clients"""
-    
+
     return [Client(client_id=key, **value) for key, value in data.items()]
-def generate_orders(data):
+
+
+def generate_orders(data: dict):
     """Code to generate orders"""
-    
+
     return [Order(order_id=key, **value) for key, value in data.items()]
 
-def generate_skus(data):
+
+def generate_skus(data: dict):
     """"Code to generate skus"""
-    
+
     return [SKU(type_id=key, **value) for key, value in data.items()]
-    
 
 
-if __name__ == "__main__":
-    for i in objects:
+objects["Factories"] = generate_factories(
+    json.load(open("../data/config_factories.json")))
 
-        with open("../data/config_"+i+".json") as fh:
-            data = json.load(fh)
-            dic[i.capitalize()]= eval("generate_"+i+"(data)")
+objects["Clients"] = generate_clients(
+    json.load(open("../data/config_clients.json")))
+
+objects["Orders"] = generate_orders(
+    json.load(open("../data/config_orders.json")))
+
+objects["SKUS"] = generate_skus(json.load(open("../data/config_skus.json")))

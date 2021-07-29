@@ -1,9 +1,12 @@
 class Order:
-    def __init__(self, client_id, recipes, product):
-        self.client_id = client_id  # id of the client who made the order
-        self.recipes = recipes  # the recipes in the order
-        self.product = product  # stand alone products
+    __slots__ = ["order_id", "client_id", "recipes",
+                 "product", "factory_id", "combined"]
+
+    def __init__(self, order_id: int, **kwargs):
+        self.order_id = order_id
         self.combined = None
+        for key, value in kwargs.items():
+            setattr(self, key, value)
 
     def Order_list(self):  # gives all the ingredients needed in the order
         order_total = {}

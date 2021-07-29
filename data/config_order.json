@@ -1,18 +1,27 @@
-{"order_1":{"client_id":"foo",
-            "recipes":"bar",
-            "product":"foo",
-            "factory_id":"bar"},
-"order_2":{"client_id":"foo",
-            "recipes":"bar",
-            "product":"foo",
-            "factory_id":"bar"},
-"order_3":{"client_id":"foo",
-            "recipes":"bar",
-            "product":"foo",
-            "factory_id":"bar"},
-            
-"order_4":{"client_id":"foo",
-            "recipes":"bar",
-            "product":"foo",
-            "factory_id":"bar"}
+{
+	"order_1": {
+		"client_id": "foo",
+		"recipes": "bar",
+		"product": "foo",
+		"factory_id": "bar"
+	},
+	"order_2": {
+		"client_id": "foo",
+		"recipes": "bar",
+		"product": "foo",
+		"factory_id": "bar"
+	},
+	"order_3": {
+		"client_id": "foo",
+		"recipes": "bar",
+		"product": "foo",
+		"factory_id": "bar"
+	},
+
+	"order_4": {
+		"client_id": "foo",
+		"recipes": "bar",
+		"product": "foo",
+		"factory_id": "bar"
+	}
 }

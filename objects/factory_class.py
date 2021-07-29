@@ -1,36 +1,44 @@
 import pgeocode  # may need to be installed at the copmmand line
 from collections import Counter
 
+import random
+gb_pc = pgeocode.GeoDistance("GB")
+
 
 class Factory:
+    __slots__ = ["factory_id", "cost_weight", "location", "factory_inventory"]
+
     # class of factory
-    def __init__(self, cost_weight, location):
-        self.Factory_ID = next(Factory.Fid_iter)
-        self.SKU_types = None  # list
-        self.cost_weight = cost_weight  # a multipler for how effiecent the factory is
-        self.location = location  # postcode of the factory
-        self.fact_inv = None  # dict of all the SKUs in the factory and their quantites
+    def __init__(self, factory_id: int, **kwargs):
+        self.factory_id = factory_id,
+        for key, value in kwargs.items():
+            setattr(self, key, value)
 
     def Box_check(self, box_in):
         # function to check if a factory can complete an order
-        check = all(item in self.SKU_types for item in (box_in.keys()))
+        check = all(item in self.factory_inventory.keys()
+                    for item in (box_in.keys()))
         # if this is true, see if they can do the order
         if check == True:
 
             fact_box = {
-                ingred: (self.fact_inv[ingred] - box_in[ingred]) for ingred in box_in
+                ingred: (self.factory_inventory[ingred] - box_in[ingred]) for ingred in box_in
             }
 
             if all(value > 0 for value in fact_box.values()) == True:
-                print("Factory", self.Factory_ID, "is eligible for this order")
+                eligible = True
+
             else:
-                print("Factory", self.Factory_ID, "is not eligible for this order")
+                eligible = False
+
         else:
-            print("Factory", self.Factory_ID, "is not eligible for this order")
+            eligible = False
+
+        return eligible
 
     def Cons_dist(self, order):
         # Function to find the Haversine distance between the factory and the order
-        fact_dist = dist.query_postal_code(self.location, order.location)
+        fact_dist = gb_pc.query_postal_code(self.location, order.location)
         return fact_dist
 
     def SKU_Holding(self, inventory):
@@ -54,8 +62,3 @@ def Factory_Dict(fact_list):
     for i in fact_list:
         fact_dict[eval(i + ".Factory_ID")] = eval(i)
     return fact_dict
-
-
-"""Factory((random.randint(50,200)/100),gb_pc._data["postal_code"][random.randint(0,27429)])
-code to Generate an automatic factory
-"""

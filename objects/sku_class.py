@@ -1,14 +1,14 @@
 class SKU:
+    __slots__ = ["type_id","name","unit_cost","holding_cost","temp_requirements","n_recipes","child_id","expiry"]
     # a given SKU, broad family
-    def __init__(self, name, unit_cost, holding_cost, temp_requirements):
-        self.type_ID = None  # ID for the type of ingredient ie Apple etc
-        self.name = name  # name of the ingredient
+    def __init__(self, type_id,**kwags):
+        self.type_id = type_id # ID for the type of ingredient ie Apple etc
         self.n_recipes = None  # number of recipes containing the SKU
-        self.unit_cost = unit_cost  # unit cost of thr SKU
-        self.holding_cost = holding_cost  # Holding cost of the SKU
-        self.temp_requirements = temp_requirements  # Temperature to hold it at
-        self.child_ID = None
+        self.child_id = None
         self.expiry = None
+        for key, value in kwags.items():
+            setattr(self,key,value)
+            
 
     def Recipes_containing(self, recipe_book):
         n_recipe = 0
@@ -25,7 +25,8 @@ class SKU:
         if self.name in SID_dict:  # if the information needs to be updated, but the
             self.type_ID = SID_dict[self.name]
         else:
-            self.type_ID = len(SID_dict)  # create a new entry in the list for the SKU
+            # create a new entry in the list for the SKU
+            self.type_ID = len(SID_dict)
             SID_dict[self.name] = self.type_ID
 
 
@@ -49,7 +50,8 @@ class Child(SKU):
             holding_cost = x.holding_cost
             temp_requirements = x.temp_requirements
 
-            SKU.__init__(self, name, unit_cost, holding_cost, temp_requirements)
+            SKU.__init__(self, name, unit_cost,
+                         holding_cost, temp_requirements)
 
             self_ID = 0
             self.child_ID = name + str(self_ID)

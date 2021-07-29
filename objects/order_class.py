@@ -1,12 +1,12 @@
 class Order:
-    __slots__ = ["order_id","client_id","recipes","product","factory_id","combined"]
-    def __init__(self, order_id, **kwags):
+    __slots__ = ["order_id", "client_id", "recipes",
+                 "product", "factory_id", "combined"]
+
+    def __init__(self, order_id: int, **kwargs):
         self.order_id = order_id
         self.combined = None
-        for key, value in kwags.items():
-            setattr(self,key,value)
-            
-       
+        for key, value in kwargs.items():
+            setattr(self, key, value)
 
     def Order_list(self):  # gives all the ingredients needed in the order
         order_total = {}

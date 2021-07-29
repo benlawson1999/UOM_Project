@@ -1,0 +1,30 @@
+{"sku_id1":{"name":"foo",
+            "unit_cost":"bar",
+            "holding_cost":"foo",
+            "temp_requirements":"bar"},
+            
+ "sku_id2":{"name":"foo",
+            "unit_cost":"bar",
+            "holding_cost":"foo",
+            "temp_requirements":"bar"},
+            
+ "sku_id3":{"name":"foo",
+            "unit_cost":"bar",
+            "holding_cost":"foo",
+            "temp_requirements":"bar"},
+            
+ "sku_id4":{"name":"foo",
+            "unit_cost":"bar",
+            "holding_cost":"foo",
+            "temp_requirements":"bar"},
+            
+ "sku_id5":{"name":"foo",
+            "unit_cost":"bar",
+            "holding_cost":"foo",
+            "temp_requirements":"bar"},
+            
+ "sku_id6":{"name":"foo",
+            "unit_cost":"bar",
+            "holding_cost":"foo",
+            "temp_requirements":"bar"}
+}

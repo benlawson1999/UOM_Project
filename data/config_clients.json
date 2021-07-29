@@ -1,25 +1,31 @@
 {
-"client_1":{"postcode":"M20",
-            "tenure":"1",
-            "income":"30",
-            "age":"22",
-            "churn_chance":"90"}
-,
-"client_2":{"postcode":"M20",
-             "tenure":"1",
-             "income":"30",
-             "age":"22",
-             "churn_chance":"90"},
+	"client_1": {
+		"postcode": "M20",
+		"tenure": "1",
+		"income": "30",
+		"age": "22",
+		"churn_chance": "90"
+	},
+	"client_2": {
+		"postcode": "M20",
+		"tenure": "1",
+		"income": "30",
+		"age": "22",
+		"churn_chance": "90"
+	},
 
-"client3":{"postcode":"M20",
-           "tenure":"1",
-           "income":"30",
-           "age":"22",
-           "churn_chance":"90"}
-,
-"client_4":{"postcode":"M20",
-            "tenure":"1",
-            "income":"30",
-            "age":"22",
-            "churn_chance":"90"}
+	"client3": {
+		"postcode": "M20",
+		"tenure": "1",
+		"income": "30",
+		"age": "22",
+		"churn_chance": "90"
+	},
+	"client_4": {
+		"postcode": "M20",
+		"tenure": "1",
+		"income": "30",
+		"age": "22",
+		"churn_chance": "90"
+	}
 }

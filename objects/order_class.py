@@ -1,4 +1,5 @@
 class Order:
+<<<<<<< HEAD
     __slots__ = [
         "order_id",
         "client_id",
@@ -7,6 +8,10 @@ class Order:
         "factory_id",
         "combined",
     ]
+=======
+    __slots__ = ["order_id", "client_id", "recipes",
+                 "product", "factory_id", "combined"]
+>>>>>>> 6c3f21059bf17ef7c9cfb6cd2356c5d2c94b54f2
 
     def __init__(self, order_id: int, **kwargs):
         self.order_id = order_id

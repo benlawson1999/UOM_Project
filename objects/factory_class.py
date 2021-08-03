@@ -1,8 +1,9 @@
-import pgeocode  # may need to be installed at the copmmand line
+# import pgeocode  # may need to be installed at the copmmand line
 from collections import Counter
 
 import random
-gb_pc = pgeocode.GeoDistance("GB")
+
+# gb_pc = pgeocode.GeoDistance("GB")
 
 
 class Factory:
@@ -10,19 +11,19 @@ class Factory:
 
     # class of factory
     def __init__(self, factory_id: int, **kwargs):
-        self.factory_id = factory_id,
+        self.factory_id = (factory_id,)
         for key, value in kwargs.items():
             setattr(self, key, value)
 
     def Box_check(self, box_in):
         # function to check if a factory can complete an order
-        check = all(item in self.factory_inventory.keys()
-                    for item in (box_in.keys()))
+        check = all(item in self.factory_inventory.keys() for item in (box_in.keys()))
         # if this is true, see if they can do the order
         if check == True:
 
             fact_box = {
-                ingred: (self.factory_inventory[ingred] - box_in[ingred]) for ingred in box_in
+                ingred: (self.factory_inventory[ingred] - box_in[ingred])
+                for ingred in box_in
             }
 
             if all(value > 0 for value in fact_box.values()) == True:
@@ -41,7 +42,7 @@ class Factory:
         fact_dist = gb_pc.query_postal_code(self.location, order.location)
         return fact_dist
 
-    def SKU_Holding(self, inventory):
+    def SKU_holding(self, inventory):
         # find all the unique items in the inventory and their quantites
         holding_total = {}
 

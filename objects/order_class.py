@@ -1,6 +1,12 @@
 class Order:
-    __slots__ = ["order_id", "client_id", "recipes",
-                 "product", "factory_id", "combined"]
+    __slots__ = [
+        "order_id",
+        "client_id",
+        "recipes",
+        "product",
+        "factory_id",
+        "combined",
+    ]
 
     def __init__(self, order_id: int, **kwargs):
         self.order_id = order_id
@@ -49,3 +55,15 @@ class Order:
 
                     order_total[key_p] = self.product[key_p]
         self.combined = order_total
+
+    def optimal_factory(self, test):
+
+        eligible_list = []
+        for factories in test["Factories"]:
+
+            if test["Factories"][factories].Box_check(self.combined) == True:
+                eligible_list.append(factories)
+        eligible_factories = {
+            your_key: test["Factories"][your_key] for your_key in eligible_list
+        }
+        return eligible_factories

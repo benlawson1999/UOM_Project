@@ -1,13 +1,12 @@
+from objects.factory_class import Factory
+from objects.client_class import Client
+from objects.order_class import Order
+from objects.sku_class import SKU
 import json
 import sys
 from pathlib import Path
 
 sys.path.append(str(Path(".").absolute().parent))
-from objects.factory_class import Factory
-from objects.client_class import Client
-from objects.order_class import Order
-from objects.sku_class import SKU
-
 objects = {}
 
 

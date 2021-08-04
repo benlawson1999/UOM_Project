@@ -13,7 +13,7 @@ objects = {}
 def generate_factories(data: dict):
     """Code to generate factories"""
 
-    return [Factory(factory_id=key, **value)for key, value in data.items()]
+    return [Factory(factory_id=key, **value) for key, value in data.items()]
 
 
 def generate_clients(data: dict):
@@ -29,18 +29,17 @@ def generate_orders(data: dict):
 
 
 def generate_skus(data: dict):
-    """"Code to generate skus"""
+    """ "Code to generate skus"""
 
     return [SKU(type_id=key, **value) for key, value in data.items()]
 
 
 objects["Factories"] = generate_factories(
-    json.load(open("../data/config_factories.json")))
+    json.load(open("../data/config_factories.json"))
+)
 
-objects["Clients"] = generate_clients(
-    json.load(open("../data/config_clients.json")))
+objects["Clients"] = generate_clients(json.load(open("../data/config_clients.json")))
 
-objects["Orders"] = generate_orders(
-    json.load(open("../data/config_orders.json")))
+objects["Orders"] = generate_orders(json.load(open("../data/config_orders.json")))
 
 objects["SKUS"] = generate_skus(json.load(open("../data/config_skus.json")))

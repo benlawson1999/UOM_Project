@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "id_1": {
     "cost_weight": "foo",
     "location": "bar",
@@ -59,63 +58,4 @@
       "test": 1
     }
   }
-=======
-	"id_1": {
-		"cost_weight": "foo",
-		"location": "bar",
-		"factory_inventory": {
-			"test": 1
-		}
-	},
-	"id_2": {
-		"cost_weight": "foo",
-		"location": "bar",
-		"factory_inventory": {
-			"test": 1
-		}
-	},
-	"id_3": {
-		"cost_weight": "foo",
-		"location": "bar",
-		"factory_inventory": {
-			"test": 1
-		}
-	},
-	"id_4": {
-		"cost_weight": "foo",
-		"location": "bar",
-		"factory_inventory": {
-			"test": 1
-		}
-	},
-	"id_5": {
-		"cost_weight": "foo",
-		"location": "bar",
-		"factory_inventory": {
-			"test": 1
-		}
-	},
-	"id_6": {
-		"cost_weight": "foo",
-		"location": "bar",
-		"factory_inventory": {
-			"test": 1
-		}
-	},
-	"id_7": {
-		"cost_weight": "foo",
-		"location": "bar",
-		"factory_inventory": {
-			"test": 1
-		}
-	},
-	"id_8": {
-		"cost_weight": "foo",
-		"location": "bar",
-		"factory_inventory": {
-			"test": 1
-		}
-	}
-
->>>>>>> 6c3f21059bf17ef7c9cfb6cd2356c5d2c94b54f2
 }

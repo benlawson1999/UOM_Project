@@ -1,6 +1,14 @@
 class SKU:
-    __slots__ = ["type_id", "name", "unit_cost", "holding_cost",
-                 "temp_requirements", "n_recipes", "child_id", "expiry"]
+    __slots__ = [
+        "type_id",
+        "name",
+        "unit_cost",
+        "holding_cost",
+        "temp_requirements",
+        "n_recipes",
+        "child_id",
+        "expiry",
+    ]
     # a given SKU, broad family
 
     def __init__(self, type_id: int, **kwargs):
@@ -51,8 +59,7 @@ class Child(SKU):
             holding_cost = x.holding_cost
             temp_requirements = x.temp_requirements
 
-            SKU.__init__(self, name, unit_cost,
-                         holding_cost, temp_requirements)
+            SKU.__init__(self, name, unit_cost, holding_cost, temp_requirements)
 
             self_ID = 0
             self.child_ID = name + str(self_ID)

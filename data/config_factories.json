@@ -3,59 +3,85 @@
     "cost_weight": "foo",
     "location": "bar",
     "factory_inventory": {
-      "Apple": 20,
-      "Pear": 50,
-      "Pork": 30,
-      "Beef": 10
+      "Apple": 23,
+      "Pear": 34,
+      "Pork": 63,
+      "Beef": 873
     }
   },
   "id_2": {
     "cost_weight": "foo",
     "location": "bar",
     "factory_inventory": {
-      "test": 1
+      "Apple": 20,
+      "Pear": 50,
+      "Pork": 30,
+      "Beef": 10,
+      "Onion": 60,
+      "Garlic": 70,
+      "Orange": 21,
+      "Banana": 67,
+      "Wine": 343
     }
   },
   "id_3": {
     "cost_weight": "foo",
     "location": "bar",
     "factory_inventory": {
-      "test": 1
+      "Orange": 42,
+      "Garlic": 67,
+      "Pork": 21,
+      "Pear": 1,
+      "Wine": 13
     }
   },
   "id_4": {
     "cost_weight": "foo",
     "location": "bar",
     "factory_inventory": {
-      "test": 1
+      "Garlic": 214,
+      "Orange": 31,
+      "Onion": 313,
+      "Pear": 214
     }
   },
   "id_5": {
     "cost_weight": "foo",
     "location": "bar",
     "factory_inventory": {
-      "test": 1
+      "Banana": 41,
+      "Apple": 36,
+      "Orange": 32,
+      "Wine": 31
     }
   },
   "id_6": {
     "cost_weight": "foo",
     "location": "bar",
     "factory_inventory": {
-      "test": 1
+      "Pear": 1,
+      "Garlic": 41,
+      "Orange": 56,
+      "Pork": 41,
+      "Wine": 123
     }
   },
   "id_7": {
     "cost_weight": "foo",
     "location": "bar",
     "factory_inventory": {
-      "test": 1
+      "Apple": 23,
+      "Garlic": 70,
+      "Pork": 14
     }
   },
   "id_8": {
     "cost_weight": "foo",
     "location": "bar",
     "factory_inventory": {
-      "test": 1
+      "Orange": 21,
+      "Onion": 32,
+      "Pork": 12
     }
   }
 }

@@ -6,24 +6,37 @@
       "Pear": 3,
       "Pork": 4
     },
-    "product": "foo",
+    "product": {
+      "Wine": 3
+    },
     "factory_id": "bar"
   },
   "order_2": {
     "client_id": "foo",
-    "recipes": "bar",
+    "recipes": {
+      "Apple": 1,
+      "Beef": 1,
+      "Onion": 1
+    },
     "product": "foo",
     "factory_id": "bar"
   },
   "order_3": {
     "client_id": "foo",
-    "recipes": "bar",
+    "recipes": {
+      "Pork": 1,
+      "Garlic": 3,
+      "Banana": 2
+    },
     "product": "foo",
     "factory_id": "bar"
   },
   "order_4": {
     "client_id": "foo",
-    "recipes": "bar",
+    "recipes": {
+      "Pork": 2,
+      "Beef": 3
+    },
     "product": "foo",
     "factory_id": "bar"
   }

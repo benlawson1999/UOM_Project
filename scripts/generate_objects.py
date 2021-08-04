@@ -1,10 +1,11 @@
+import json
+import sys
+from pathlib import Path
 from objects.factory_class import Factory
 from objects.client_class import Client
 from objects.order_class import Order
 from objects.sku_class import SKU
-import json
-import sys
-from pathlib import Path
+
 
 sys.path.append(str(Path(".").absolute().parent))
 Objects = {}
@@ -42,15 +43,10 @@ def generate_skus(data: dict):
     return skus
 
 
-Objects["Factories"] = generate_factories(
-    json.load(open("../data/config_factories.json"))
-)
+Factories = generate_factories(json.load(open("./data/config_factories.json")))
 
-Objects["Clients"] = generate_clients(json.load(open("../data/config_clients.json")))
+Clients = generate_clients(json.load(open("./data/config_clients.json")))
 
-Objects["Orders"] = generate_orders(json.load(open("../data/config_orders.json")))
+Orders = generate_orders(json.load(open("./data/config_orders.json")))
 
-Objects["SKUS"] = generate_skus(json.load(open("../data/config_skus.json")))
-
-Objects["Orders"]["order_1"].Order_list()
-test = Objects["Orders"]["order_1"].optimal_factory(Objects)
+SKUs = generate_skus(json.load(open("./data/config_skus.json")))

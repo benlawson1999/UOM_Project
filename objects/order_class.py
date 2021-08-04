@@ -1,3 +1,6 @@
+import random
+
+
 class Order:
     __slots__ = [
         "order_id",
@@ -14,7 +17,7 @@ class Order:
         for key, value in kwargs.items():
             setattr(self, key, value)
 
-    def Order_list(self):  # gives all the ingredients needed in the order
+    def order_list(self):  # gives all the ingredients needed in the order
         order_total = {}
         if type(self.recipes) == tuple:
             for dict_ in self.recipes:
@@ -34,7 +37,8 @@ class Order:
                     order_total[key] += self.recipes[key]
                 else:
                     order_total[key] = self.recipes[key]
-        if type(self.product) != tuple:  # in case there are no additonal products
+
+        if type(self.product) != dict:
             pass
         elif len(self.product) > 1:
             for dict_p in self.product:
@@ -56,13 +60,23 @@ class Order:
                     order_total[key_p] = self.product[key_p]
         self.combined = order_total
 
-    def optimal_factory(self, test):
+    def optimal_factory_naive(self, factories_dict: dict):
 
         eligible_list = []
-        for factories in test["Factories"]:
+        for factories in factories_dict:
 
-            if test["Factories"][factories].Box_check(self.combined) == True:
+            if factories_dict[factories].Box_check(self.combined) == True:
                 eligible_list.append(factories)
         eligible_factories = {
-            your_key: test["Factories"][your_key] for your_key in eligible_list
+            your_key: factories_dict[your_key] for your_key in eligible_list
         }
+        print(eligible_factories)
+        optimal_id = random.choice(list(eligible_factories))
+
+        for key_p in self.combined:
+            if key_p in factories_dict[optimal_id].factory_inventory:
+                factories_dict[optimal_id].factory_inventory[key_p] -= self.combined[
+                    key_p
+                ]
+        self.factory_id = optimal_id
+        return optimal_id

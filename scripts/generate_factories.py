@@ -9,7 +9,15 @@ sys.path.append(str(Path(".").absolute().parent))
 def generate_factories(data):
     """Code to generate factories"""
 
-    return [Factory(Factory_ID=key, cost_weight=list(value.values())[0], location=list(value.values())[1], fact_inv=list(value.values())[2])for key, value in data.items()]
+    return [
+        Factory(
+            Factory_ID=key,
+            cost_weight=list(value.values())[0],
+            location=list(value.values())[1],
+            fact_inv=list(value.values())[2],
+        )
+        for key, value in data.items()
+    ]
 
 
 if __name__ == "__main__":

@@ -1,38 +1,65 @@
 {
-  "sku_id1": {
-    "name": "foo",
-    "unit_cost": "bar",
-    "holding_cost": "foo",
-    "temp_requirements": "bar"
+  "Apple": {
+    "type_id": "sku_id1",
+    "unit_cost": 3,
+    "holding_cost": 7,
+    "temp_requirements": 25,
+    "target_level": 0
   },
-  "sku_id2": {
-    "name": "foo",
-    "unit_cost": "bar",
-    "holding_cost": "foo",
-    "temp_requirements": "bar"
+  "Pear": {
+    "type_id": "sku_id2",
+    "unit_cost": 2,
+    "holding_cost": 3,
+    "temp_requirements": 25,
+    "target_level": 0
   },
-  "sku_id3": {
-    "name": "foo",
-    "unit_cost": "bar",
-    "holding_cost": "foo",
-    "temp_requirements": "bar"
+  "Pork": {
+    "type_id": "sku_id3",
+    "unit_cost": 10,
+    "holding_cost": 9,
+    "temp_requirements": 5,
+    "target_level": 0
   },
-  "sku_id4": {
-    "name": "foo",
-    "unit_cost": "bar",
-    "holding_cost": "foo",
-    "temp_requirements": "bar"
+  "Beef": {
+    "type_id": "sku_id4",
+    "unit_cost": 8,
+    "holding_cost": 9,
+    "temp_requirements": 5,
+    "target_level": 0
   },
-  "sku_id5": {
-    "name": "foo",
-    "unit_cost": "bar",
-    "holding_cost": "foo",
-    "temp_requirements": "bar"
+  "Onion": {
+    "type_id": "sku_id5",
+    "unit_cost": 5,
+    "holding_cost": 4,
+    "temp_requirements": 25,
+    "target_level": 0
   },
-  "sku_id6": {
-    "name": "foo",
-    "unit_cost": "bar",
-    "holding_cost": "foo",
-    "temp_requirements": "bar"
+  "Garlic": {
+    "type_id": "sku_id6",
+    "unit_cost": 10,
+    "holding_cost": 5,
+    "temp_requirements": 25,
+    "target_level": 0
+  },
+  "Orange": {
+    "type_id": "sku_id7",
+    "unit_cost": 3,
+    "holding_cost": 5,
+    "temp_requirements": 25,
+    "target_level": 0
+  },
+  "Banana": {
+    "type_id": "sku_id8",
+    "unit_cost": 2,
+    "holding_cost": 3,
+    "temp_requirements": 20,
+    "target_level": 0
+  },
+  "Wine": {
+    "type_id": "sku_id9",
+    "unit_cost": 20,
+    "holding_cost": 6,
+    "temp_requirements": 25,
+    "target_level": 0
   }
 }

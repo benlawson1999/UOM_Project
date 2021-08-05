@@ -9,6 +9,7 @@ class Order:
         "product",
         "factory_id",
         "combined",
+        "fulfilled"
     ]
 
     def __init__(self, order_id: int, **kwargs):
@@ -60,7 +61,7 @@ class Order:
                     order_total[key_p] = self.product[key_p]
         self.combined = order_total
 
-    def optimal_factory_naive(self, factories_dict: dict):
+    def eligibility_check(self, factories_dict: dict):
 
         eligible_list = []
         for factories in factories_dict:
@@ -71,12 +72,21 @@ class Order:
             your_key: factories_dict[your_key] for your_key in eligible_list
         }
         print(eligible_factories)
-        optimal_id = random.choice(list(eligible_factories))
+        return eligible_factories
+    def optimal_factory_naive(self, factories_dict):
 
-        for key_p in self.combined:
-            if key_p in factories_dict[optimal_id].factory_inventory:
-                factories_dict[optimal_id].factory_inventory[key_p] -= self.combined[
+        eligible_factories = self.eligibility_check(factories_dict)
+        if not eligible_factories:
+            self.fulfilled = 0
+            return self.fulfilled
+        else:
+            optimal_id = random.choice(list(eligible_factories))
+
+            for key_p in self.combined:
+                if key_p in factories_dict[optimal_id].factory_inventory:
+                    factories_dict[optimal_id].factory_inventory[key_p] -= self.combined[
                     key_p
                 ]
         self.factory_id = optimal_id
+        self.fulfilled = 1
         return optimal_id

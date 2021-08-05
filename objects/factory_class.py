@@ -26,7 +26,7 @@ class Factory:
                 for ingred in box_in
             }
 
-            if all(value > 0 for value in fact_box.values()) == True:
+            if all(value >= 0 for value in fact_box.values()) == True:
                 eligible = True
 
             else:

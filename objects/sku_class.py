@@ -8,6 +8,7 @@ class SKU:
         "n_recipes",
         "child_id",
         "expiry",
+        "target_level",
     ]
     # a given SKU, broad family
 

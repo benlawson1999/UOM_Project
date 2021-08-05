@@ -39,7 +39,7 @@ def generate_skus(data: dict):
     """ "Code to generate skus"""
     skus = {}
     for key, value in data.items():
-        skus[key] = SKU(type_id=key, **value)
+        skus[key] = SKU(name=key, **value)
     return skus
 
 
@@ -50,3 +50,7 @@ Clients = generate_clients(json.load(open("./data/config_clients.json")))
 Orders = generate_orders(json.load(open("./data/config_orders.json")))
 
 SKUs = generate_skus(json.load(open("./data/config_skus.json")))
+
+Target = {}
+for i in SKUs:
+    Target[i] = SKUs[i].target_level

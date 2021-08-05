@@ -5,14 +5,14 @@ from objects.order_class import Order
 from objects.sku_class import SKU
 from functions.WMAPE import wmape
 
-fulfilled_count=0
+fulfilled_count = 0
 for i in Orders:
 
     Orders[i].order_list()
     Orders[i].optimal_factory_naive(Factories)
     fulfilled_count += Orders[i].fulfilled
 total_inventory = {}
-fulfilled_percent = fulfilled_count/len(Orders)
+fulfilled_percent = fulfilled_count / len(Orders)
 for i in Factories:
 
     for key in Factories[i].factory_inventory:
@@ -22,5 +22,5 @@ for i in Factories:
         else:
             total_inventory[key] = Factories[i].factory_inventory[key]
 
-result = wmape(total_inventory,Target)
+result = wmape(total_inventory, Target)
 print(fulfilled_percent)

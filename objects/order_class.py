@@ -71,7 +71,6 @@ class Order:
         eligible_factories = {
             your_key: factories_dict[your_key] for your_key in eligible_list
         }
-        print(eligible_factories)
         return eligible_factories
     def optimal_factory_naive(self, factories_dict):
 

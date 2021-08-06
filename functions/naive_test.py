@@ -9,10 +9,10 @@ fulfilled_count = 0
 for i in Orders:
 
     Orders[i].order_list()
-    Orders[i].optimal_factory_naive(Factories)
+    Orders[i].optimal_factory_ranking_max(Factories)
     fulfilled_count += Orders[i].fulfilled
 total_inventory = {}
-fulfilled_percent = fulfilled_count / len(Orders)
+fulfilled_percent = fulfilled_count / len(Orders) * 100
 for i in Factories:
 
     for key in Factories[i].factory_inventory:
@@ -23,4 +23,5 @@ for i in Factories:
             total_inventory[key] = Factories[i].factory_inventory[key]
 
 result = wmape(total_inventory, Target)
+print(result)
 print(fulfilled_percent)

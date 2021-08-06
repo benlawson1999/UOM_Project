@@ -1,4 +1,5 @@
 import random
+import operator
 
 
 class Order:
@@ -9,7 +10,7 @@ class Order:
         "product",
         "factory_id",
         "combined",
-        "fulfilled"
+        "fulfilled",
     ]
 
     def __init__(self, order_id: int, **kwargs):
@@ -72,7 +73,8 @@ class Order:
             your_key: factories_dict[your_key] for your_key in eligible_list
         }
         return eligible_factories
-    def optimal_factory_naive(self, factories_dict):
+
+    def optimal_factory_naive(self, factories_dict: dict):
 
         eligible_factories = self.eligibility_check(factories_dict)
         if not eligible_factories:
@@ -83,9 +85,43 @@ class Order:
 
             for key_p in self.combined:
                 if key_p in factories_dict[optimal_id].factory_inventory:
-                    factories_dict[optimal_id].factory_inventory[key_p] -= self.combined[
-                    key_p
-                ]
+                    factories_dict[optimal_id].factory_inventory[
+                        key_p
+                    ] -= self.combined[key_p]
         self.factory_id = optimal_id
         self.fulfilled = 1
         return optimal_id
+
+    def optimal_factory_ranking_max(self, factories_dict: dict):
+        eligible_factories = self.eligibility_check(factories_dict)
+        factories_quantity = {}
+        if not eligible_factories:
+            self.fulfilled = 0
+            return self.fulfilled
+        else:
+            for factory in eligible_factories:
+                factories_quantity[factory] = 0
+                for item in self.combined:
+                    factories_quantity[factory] += eligible_factories[
+                        factory
+                    ].factory_inventory[item]
+            self.fulfilled = 1
+            optimal_id = max(factories_quantity.items(), key=operator.itemgetter(1))[0]
+            return optimal_id
+
+    def optimal_factory_ranking_min(self, factories_dict: dict):
+        eligible_factories = self.eligibility_check(factories_dict)
+        factories_quantity = {}
+        if not eligible_factories:
+            self.fulfilled = 0
+            return self.fulfilled
+        else:
+            for factory in eligible_factories:
+                factories_quantity[factory] = 0
+                for item in self.combined:
+                    factories_quantity[factory] += eligible_factories[
+                        factory
+                    ].factory_inventory[item]
+            self.fulfilled = 1
+            optimal_id = min(factories_quantity.items(), key=operator.itemgetter(1))[0]
+            return optimal_id

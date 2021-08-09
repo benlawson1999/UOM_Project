@@ -1,0 +1,42 @@
+{
+  "recipe_0": {
+    "ingredients": "foo",
+    "quantities": 10
+  },
+  "recipe_1": {
+    "ingredients": "foo",
+    "quantities": 7
+  },
+  "recipe_2": {
+    "ingredients": "foo",
+    "quantities": 3
+  },
+  "recipe_3": {
+    "ingredients": "bar",
+    "quantities": 6
+  },
+  "recipe_4": {
+    "ingredients": "bar",
+    "quantities": 3
+  },
+  "recipe_5": {
+    "ingredients": "foo",
+    "quantities": 5
+  },
+  "recipe_6": {
+    "ingredients": "bar",
+    "quantities": 3
+  },
+  "recipe_7": {
+    "ingredients": "foo",
+    "quantities": 9
+  },
+  "recipe_8": {
+    "ingredients": "foo",
+    "quantities": 8
+  },
+  "recipe_9": {
+    "ingredients": "bar",
+    "quantities": 9
+  }
+}

@@ -5,6 +5,7 @@ from objects.factory_class import Factory
 from objects.client_class import Client
 from objects.order_class import Order
 from objects.sku_class import SKU
+from objects.recipe_class import Recipe
 
 
 sys.path.append(str(Path(".").absolute().parent))

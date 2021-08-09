@@ -1,0 +1,82 @@
+{
+  "factory_0": {
+    "postcode": "NR16",
+    "cost_weight": 0.7,
+    "factory_inventory": {
+      "foo": 980,
+      "bar": 590
+    }
+  },
+  "factory_1": {
+    "postcode": "GL7",
+    "cost_weight": 1.6,
+    "factory_inventory": {
+      "foo": 0,
+      "bar": 367
+    }
+  },
+  "factory_2": {
+    "postcode": "SG9",
+    "cost_weight": 1.8,
+    "factory_inventory": {
+      "foo": 537,
+      "bar": 93
+    }
+  },
+  "factory_3": {
+    "postcode": "YO1",
+    "cost_weight": 1,
+    "factory_inventory": {
+      "foo": 0,
+      "bar": 288
+    }
+  },
+  "factory_4": {
+    "postcode": "TQ13",
+    "cost_weight": 1.4,
+    "factory_inventory": {
+      "foo": 423,
+      "bar": 0
+    }
+  },
+  "factory_5": {
+    "postcode": "IV40",
+    "cost_weight": 1.9,
+    "factory_inventory": {
+      "foo": 0,
+      "bar": 650
+    }
+  },
+  "factory_6": {
+    "postcode": "BT54",
+    "cost_weight": 1.8,
+    "factory_inventory": {
+      "foo": 0,
+      "bar": 592
+    }
+  },
+  "factory_7": {
+    "postcode": "YO17",
+    "cost_weight": 1,
+    "factory_inventory": {
+      "foo": 293,
+      "bar": 853
+    }
+  },
+  "factory_8": {
+    "postcode": "SA20",
+    "cost_weight": 0.6,
+    "factory_inventory": {
+      "foo": 622,
+      "bar": 383
+    }
+  },
+  "factory_9": {
+    "postcode": "EX39",
+    "cost_weight": 1.2,
+    "factory_inventory": {
+      "foo": 573,
+      "bar": 289
+    }
+  }
+}

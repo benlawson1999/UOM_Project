@@ -7,7 +7,7 @@ import random
 
 
 class Factory:
-    __slots__ = ["factory_id", "cost_weight", "location", "factory_inventory"]
+    __slots__ = ["factory_id", "cost_weight", "postcode", "factory_inventory"]
 
     # class of factory
     def __init__(self, factory_id: int, **kwargs):
@@ -39,7 +39,7 @@ class Factory:
 
     def Cons_dist(self, order):
         # Function to find the Haversine distance between the factory and the order
-        fact_dist = gb_pc.query_postal_code(self.location, order.location)
+        fact_dist = gb_pc.query_postal_code(self.postcode, order.location)
         return fact_dist
 
     def SKU_holding(self, inventory):
@@ -56,10 +56,3 @@ class Factory:
                 holding_total[key] = inventory[key]
         self.fact_inv = holding_total
         self.SKU_types = holding_total.keys()
-
-
-def Factory_Dict(fact_list):
-    fact_dict = {}
-    for i in fact_list:
-        fact_dict[eval(i + ".Factory_ID")] = eval(i)
-    return fact_dict

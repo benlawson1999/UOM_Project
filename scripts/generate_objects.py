@@ -43,13 +43,18 @@ def generate_skus(data: dict):
         skus[key] = SKU(name=key, **value)
     return skus
 
+
 def generate_recipes(data: dict):
     """Code to generate recipes"""
-    recipes ={}
-    for key,value in data.items():
-        recipes[key] = Recipe(recipe_id = key, **value)
+    recipes = {}
+    for key, value in data.items():
+        recipes[key] = Recipe(recipe_id=key, **value)
     return recipes
-Factories = generate_factories(json.load(open("./automatic_data/config_factories.json")))
+
+
+Factories = generate_factories(
+    json.load(open("./automatic_data/config_factories.json"))
+)
 
 Clients = generate_clients(json.load(open("./automatic_data/config_clients.json")))
 
@@ -61,4 +66,4 @@ Recipes = generate_recipes(json.load(open("./automatic_data/config_recipes.json"
 
 Target = {}
 for i in SKUs:
-    Target[i] = (SKUs[i].target_level) *len(Factories)
+    Target[i] = (SKUs[i].target_level) * len(Factories)

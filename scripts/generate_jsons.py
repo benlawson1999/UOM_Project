@@ -116,9 +116,9 @@ def create_orders(n: int):
                     np.random.randint(1, len(recipes_json) + 1),
                 )
             ),
-            "product": [(
-                np.random.choice(list(skus_json.keys()), np.random.randint(1, 2))[0]
-            )],
+            "product": [
+                (np.random.choice(list(skus_json.keys()), np.random.randint(1, 2))[0])
+            ],
             "factory_id": "foo",
         }
     return orders_json

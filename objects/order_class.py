@@ -1,6 +1,7 @@
 import random
 import operator
 
+
 class Order:
     __slots__ = [
         "order_id",

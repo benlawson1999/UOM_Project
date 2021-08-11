@@ -23,8 +23,7 @@ for k in Factories:
             total_inventory[key] += Factories[k].factory_inventory[key]
         else:
             total_inventory[key] = Factories[k].factory_inventory[key]
-print(total_inventory)
-print(Target)
+
 result = wmape(total_inventory, Target)
 print(result)
 print(fulfilled_percent)

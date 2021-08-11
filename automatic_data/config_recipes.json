@@ -1,1 +1,318 @@
-{"recipe_0": {"ingredients": ["Carrot", "Pear", "Chicken", "Potatoes", "Beef", "Apple", "Garlic"], "quantities": [1, 3, 1, 4, 2, 4, 4]}, "recipe_1": {"ingredients": ["Garlic", "Apple", "Pear", "Banana"], "quantities": [3, 2, 3, 3]}, "recipe_2": {"ingredients": ["Garlic"], "quantities": [2]}, "recipe_3": {"ingredients": ["Pear"], "quantities": [1]}, "recipe_4": {"ingredients": ["Mushrooms", "Cabbage", "Pork", "Garlic", "Carrot", "Pear", "Chicken", "Apple", "Banana"], "quantities": [4, 2, 2, 1, 1, 3, 3, 4, 3]}, "recipe_5": {"ingredients": ["Pork"], "quantities": [1]}, "recipe_6": {"ingredients": ["Pork", "Potatoes", "Mushrooms"], "quantities": [1, 4, 3]}, "recipe_7": {"ingredients": ["Chicken", "Mushrooms", "Carrot", "Garlic", "Potatoes", "Cabbage", "Pork", "Banana", "Apple", "Pear"], "quantities": [4, 1, 4, 1, 2, 4, 4, 3, 1, 4]}, "recipe_8": {"ingredients": ["Pork", "Pear", "Beef", "Garlic", "Chicken", "Carrot", "Cabbage"], "quantities": [2, 4, 1, 1, 3, 4, 2]}, "recipe_9": {"ingredients": ["Garlic", "Banana", "Apple", "Chicken", "Potatoes", "Pork"], "quantities": [3, 1, 2, 1, 1, 1]}, "recipe_10": {"ingredients": ["Chicken", "Garlic", "Pork", "Potatoes"], "quantities": [3, 2, 4, 1]}, "recipe_11": {"ingredients": ["Pear", "Cabbage", "Beef", "Pork", "Carrot"], "quantities": [4, 3, 4, 4, 2]}, "recipe_12": {"ingredients": ["Garlic", "Pear", "Cabbage", "Potatoes", "Apple", "Beef", "Chicken", "Banana"], "quantities": [3, 1, 4, 1, 2, 2, 3, 1]}, "recipe_13": {"ingredients": ["Pork", "Chicken"], "quantities": [3, 3]}, "recipe_14": {"ingredients": ["Pear", "Banana"], "quantities": [2, 1]}, "recipe_15": {"ingredients": ["Potatoes", "Apple", "Garlic", "Cabbage", "Beef", "Banana", "Pear", "Chicken", "Pork", "Carrot"], "quantities": [1, 2, 2, 1, 1, 4, 4, 1, 4, 2]}, "recipe_16": {"ingredients": ["Cabbage", "Garlic", "Pear", "Potatoes", "Chicken"], "quantities": [3, 3, 4, 1, 4]}, "recipe_17": {"ingredients": ["Cabbage", "Pork"], "quantities": [4, 3]}, "recipe_18": {"ingredients": ["Cabbage"], "quantities": [1]}, "recipe_19": {"ingredients": ["Potatoes", "Pork", "Mushrooms", "Pear", "Chicken", "Garlic", "Cabbage", "Beef", "Banana", "Carrot"], "quantities": [1, 2, 2, 1, 2, 1, 4, 2, 4, 4]}}
+{
+  "recipe_0": {
+    "ingredients": [
+      "Carrot",
+      "Pear",
+      "Chicken",
+      "Potatoes",
+      "Beef",
+      "Apple",
+      "Garlic"
+    ],
+    "quantities": [
+      1,
+      3,
+      1,
+      4,
+      2,
+      4,
+      4
+    ]
+  },
+  "recipe_1": {
+    "ingredients": [
+      "Garlic",
+      "Apple",
+      "Pear",
+      "Banana"
+    ],
+    "quantities": [
+      3,
+      2,
+      3,
+      3
+    ]
+  },
+  "recipe_2": {
+    "ingredients": [
+      "Garlic"
+    ],
+    "quantities": [
+      2
+    ]
+  },
+  "recipe_3": {
+    "ingredients": [
+      "Pear"
+    ],
+    "quantities": [
+      1
+    ]
+  },
+  "recipe_4": {
+    "ingredients": [
+      "Mushrooms",
+      "Cabbage",
+      "Pork",
+      "Garlic",
+      "Carrot",
+      "Pear",
+      "Chicken",
+      "Apple",
+      "Banana"
+    ],
+    "quantities": [
+      4,
+      2,
+      2,
+      1,
+      1,
+      3,
+      3,
+      4,
+      3
+    ]
+  },
+  "recipe_5": {
+    "ingredients": [
+      "Pork"
+    ],
+    "quantities": [
+      1
+    ]
+  },
+  "recipe_6": {
+    "ingredients": [
+      "Pork",
+      "Potatoes",
+      "Mushrooms"
+    ],
+    "quantities": [
+      1,
+      4,
+      3
+    ]
+  },
+  "recipe_7": {
+    "ingredients": [
+      "Chicken",
+      "Mushrooms",
+      "Carrot",
+      "Garlic",
+      "Potatoes",
+      "Cabbage",
+      "Pork",
+      "Banana",
+      "Apple",
+      "Pear"
+    ],
+    "quantities": [
+      4,
+      1,
+      4,
+      1,
+      2,
+      4,
+      4,
+      3,
+      1,
+      4
+    ]
+  },
+  "recipe_8": {
+    "ingredients": [
+      "Pork",
+      "Pear",
+      "Beef",
+      "Garlic",
+      "Chicken",
+      "Carrot",
+      "Cabbage"
+    ],
+    "quantities": [
+      2,
+      4,
+      1,
+      1,
+      3,
+      4,
+      2
+    ]
+  },
+  "recipe_9": {
+    "ingredients": [
+      "Garlic",
+      "Banana",
+      "Apple",
+      "Chicken",
+      "Potatoes",
+      "Pork"
+    ],
+    "quantities": [
+      3,
+      1,
+      2,
+      1,
+      1,
+      1
+    ]
+  },
+  "recipe_10": {
+    "ingredients": [
+      "Chicken",
+      "Garlic",
+      "Pork",
+      "Potatoes"
+    ],
+    "quantities": [
+      3,
+      2,
+      4,
+      1
+    ]
+  },
+  "recipe_11": {
+    "ingredients": [
+      "Pear",
+      "Cabbage",
+      "Beef",
+      "Pork",
+      "Carrot"
+    ],
+    "quantities": [
+      4,
+      3,
+      4,
+      4,
+      2
+    ]
+  },
+  "recipe_12": {
+    "ingredients": [
+      "Garlic",
+      "Pear",
+      "Cabbage",
+      "Potatoes",
+      "Apple",
+      "Beef",
+      "Chicken",
+      "Banana"
+    ],
+    "quantities": [
+      3,
+      1,
+      4,
+      1,
+      2,
+      2,
+      3,
+      1
+    ]
+  },
+  "recipe_13": {
+    "ingredients": [
+      "Pork",
+      "Chicken"
+    ],
+    "quantities": [
+      3,
+      3
+    ]
+  },
+  "recipe_14": {
+    "ingredients": [
+      "Pear",
+      "Banana"
+    ],
+    "quantities": [
+      2,
+      1
+    ]
+  },
+  "recipe_15": {
+    "ingredients": [
+      "Potatoes",
+      "Apple",
+      "Garlic",
+      "Cabbage",
+      "Beef",
+      "Banana",
+      "Pear",
+      "Chicken",
+      "Pork",
+      "Carrot"
+    ],
+    "quantities": [
+      1,
+      2,
+      2,
+      1,
+      1,
+      4,
+      4,
+      1,
+      4,
+      2
+    ]
+  },
+  "recipe_16": {
+    "ingredients": [
+      "Cabbage",
+      "Garlic",
+      "Pear",
+      "Potatoes",
+      "Chicken"
+    ],
+    "quantities": [
+      3,
+      3,
+      4,
+      1,
+      4
+    ]
+  },
+  "recipe_17": {
+    "ingredients": [
+      "Cabbage",
+      "Pork"
+    ],
+    "quantities": [
+      4,
+      3
+    ]
+  },
+  "recipe_18": {
+    "ingredients": [
+      "Cabbage"
+    ],
+    "quantities": [
+      1
+    ]
+  },
+  "recipe_19": {
+    "ingredients": [
+      "Potatoes",
+      "Pork",
+      "Mushrooms",
+      "Pear",
+      "Chicken",
+      "Garlic",
+      "Cabbage",
+      "Beef",
+      "Banana",
+      "Carrot"
+    ],
+    "quantities": [
+      1,
+      2,
+      2,
+      1,
+      2,
+      1,
+      4,
+      2,
+      4,
+      4
+    ]
+  }
+}

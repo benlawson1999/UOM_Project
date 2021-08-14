@@ -7,52 +7,55 @@ import random
 
 
 class Factory:
-    __slots__ = ["factory_id", "cost_weight", "postcode", "factory_inventory"]
+    __slots__ = [
+        "factory_id",
+        "cost_weight",
+        "postcode",
+        "factory_inventory",
+        "eligible",
+    ]
 
     # class of factory
     def __init__(self, factory_id: int, **kwargs):
-        self.factory_id = (factory_id,)
+        self.factory_id = factory_id
         for key, value in kwargs.items():
             setattr(self, key, value)
+        self.eligible = None
 
-    def Box_check(self, box_in):
+    def Box_check(self, box_in, demand):
         # function to check if a factory can complete an order
         check = all(item in self.factory_inventory.keys() for item in (box_in.keys()))
         # if this is true, see if they can do the order
+        fact_box = {}
         if check == True:
+            for ingredient in box_in:
+                if demand.get(self.factory_id) is None:
 
-            fact_box = {
-                ingred: (self.factory_inventory[ingred] - box_in[ingred])
-                for ingred in box_in
-            }
+                    demand[self.factory_id] = {}  # make a new entry
+                if demand[self.factory_id].get(ingredient) is None:
+
+                    demand[self.factory_id][ingredient] = 0
+
+                fact_box[ingredient] = (
+                    self.factory_inventory[ingredient]
+                    - box_in[ingredient]
+                    - demand[self.factory_id][ingredient]
+                )
 
             if all(value >= 0 for value in fact_box.values()) == True:
-                eligible = True
+                print(fact_box)
+
+                self.eligible = True
 
             else:
-                eligible = False
+                self.eligible = False
 
         else:
-            eligible = False
+            self.eligible = False
 
-        return eligible
+        return self.eligible
 
     def Cons_dist(self, order):
         # Function to find the Haversine distance between the factory and the order
         fact_dist = gb_pc.query_postal_code(self.postcode, order.location)
         return fact_dist
-
-    def SKU_holding(self, inventory):
-        # find all the unique items in the inventory and their quantites
-        holding_total = {}
-
-        for key in inventory:
-
-            if key in holding_total:
-                # add the value to the current total in the whole factory
-                holding_total[key] += inventory[key]
-            else:
-                # create a new entry if theres not currently a entry
-                holding_total[key] = inventory[key]
-        self.fact_inv = holding_total
-        self.SKU_types = holding_total.keys()

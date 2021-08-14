@@ -40,7 +40,7 @@ ingredients = [
 def create_factories(n: int, ingredient_list: list):
     factories_json = {}
     inventory = {}
-    inventory_size = np.random.choice([0, "1"], 100000, p=[0.1, 0.9])
+    inventory_size = np.random.choice([0, "1"], 100000, p=[0.05, 0.95])
     mask = inventory_size == "1"
     inventory_size[mask] = np.random.choice(1000, len(inventory_size[mask]))
     for i in range(n):
@@ -119,12 +119,12 @@ def create_orders(n: int):
             "product": [
                 (np.random.choice(list(skus_json.keys()), np.random.randint(1, 2))[0])
             ],
-            "factory_id": "foo",
+            "factory_id": None,
         }
     return orders_json
 
 
-orders_json = create_orders(10000)
+orders_json = create_orders(1000)
 
 with open("./automatic_data/config_orders.json", "w") as outfile:
     json.dump(orders_json, outfile)

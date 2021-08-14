@@ -63,7 +63,3 @@ Orders = generate_orders(json.load(open("./automatic_data/config_orders.json")))
 SKUs = generate_skus(json.load(open("./automatic_data/config_skus.json")))
 
 Recipes = generate_recipes(json.load(open("./automatic_data/config_recipes.json")))
-
-Target = {}
-for i in SKUs:
-    Target[i] = (SKUs[i].target_level) * len(Factories)

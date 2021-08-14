@@ -1,3 +1,4 @@
+"""test"""
 import random
 import operator
 
@@ -40,55 +41,32 @@ class Order:
                 order_total[i] = 1
         self.combined = order_total
 
-    def eligibility_check(self, factories_dict: dict):
+    def eligibility_check(self, factories_dict: dict, demand: dict):
 
         eligible_list = []
         for factories in factories_dict:
-
-            if factories_dict[factories].Box_check(self.combined) == True:
+            if factories_dict[factories].Box_check(self.combined, demand) == True:
                 eligible_list.append(factories)
         eligible_factories = {
             your_key: factories_dict[your_key] for your_key in eligible_list
         }
         return eligible_factories
 
-    def optimal_factory_naive(self, factories_dict: dict):
+    def optimal_factory_naive(self, factories_dict: dict, demand: dict):
 
-        eligible_factories = self.eligibility_check(factories_dict)
+        eligible_factories = self.eligibility_check(factories_dict, demand)
+
         if not eligible_factories:
             self.fulfilled = 0
             return self.fulfilled
         else:
             optimal_id = random.choice(list(eligible_factories))
-
-            for key_p in self.combined:
-                if key_p in factories_dict[optimal_id].factory_inventory:
-                    factories_dict[optimal_id].factory_inventory[
-                        key_p
-                    ] -= self.combined[key_p]
-        self.factory_id = optimal_id
-        self.fulfilled = 1
-        return optimal_id
-
-    def optimal_factory_ranking_max(self, factories_dict: dict):
-        eligible_factories = self.eligibility_check(factories_dict)
-        factories_quantity = {}
-        if not eligible_factories:
-            self.fulfilled = 0
-            return self.fulfilled
-        else:
-            for factory in eligible_factories:
-                factories_quantity[factory] = 0
-                for item in self.combined:
-                    factories_quantity[factory] += eligible_factories[
-                        factory
-                    ].factory_inventory[item]
+            self.factory_id = optimal_id
             self.fulfilled = 1
-            optimal_id = max(factories_quantity.items(), key=operator.itemgetter(1))[0]
             return optimal_id
 
-    def optimal_factory_ranking_min(self, factories_dict: dict):
-        eligible_factories = self.eligibility_check(factories_dict)
+    def optimal_factory_ranking_max(self, factories_dict: dict, demand: dict):
+        eligible_factories = self.eligibility_check(factories_dict, demand)
         factories_quantity = {}
         if not eligible_factories:
             self.fulfilled = 0
@@ -100,6 +78,27 @@ class Order:
                     factories_quantity[factory] += eligible_factories[
                         factory
                     ].factory_inventory[item]
+            optimal_id = max(factories_quantity.items(), key=operator.itemgetter(1))[0]
+            self.factory_id = optimal_id
             self.fulfilled = 1
+            return optimal_id
+
+    def optimal_factory_ranking_min(self, factories_dict: dict, demand: dict):
+        eligible_factories = self.eligibility_check(factories_dict, demand)
+        factories_quantity = {}
+        if not eligible_factories:
+            self.fulfilled = 0
+            return self.fulfilled
+        else:
+            for factory in eligible_factories:
+                factories_quantity[factory] = 0
+                for item in self.combined:
+                    factories_quantity[factory] += eligible_factories[
+                        factory
+                    ].factory_inventory[item]
+
             optimal_id = min(factories_quantity.items(), key=operator.itemgetter(1))[0]
+            self.factory_id = optimal_id
+            self.fulfilled = 1
+
             return optimal_id

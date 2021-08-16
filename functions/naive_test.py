@@ -5,6 +5,7 @@ import numpy as np
 
 demand = {}
 fulfilled_count = 0
+print(len(Orders))
 
 for order in Orders.values():
 
@@ -25,7 +26,6 @@ for order in Orders.values():
         demand[order.factory_id][item] += value
 
 
-print(demand)
 fulfilled_percent = fulfilled_count / len(Orders) * 100
 results = {}
 for factory in Factories.values():

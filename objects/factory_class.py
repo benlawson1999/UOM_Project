@@ -43,7 +43,6 @@ class Factory:
                 )
 
             if all(value >= 0 for value in fact_box.values()) == True:
-                print(fact_box)
 
                 self.eligible = True
 

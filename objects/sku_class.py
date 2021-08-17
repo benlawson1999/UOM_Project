@@ -5,7 +5,7 @@ class SKU:
         "unit_cost",
         "holding_cost",
         "temp_requirements",
-        "n_recipes",
+        "recipe_percent",
         "child_id",
         "expiry",
         "target_level",
@@ -14,7 +14,7 @@ class SKU:
 
     def __init__(self, type_id: int, **kwargs):
         self.type_id = type_id  # ID for the type of ingredient ie Apple etc
-        self.n_recipes = None  # number of recipes containing the SKU
+        self.recipe_percent = None  # number of recipes containing the SKU
         self.child_id = None
         self.expiry = None
         for key, value in kwargs.items():
@@ -22,22 +22,15 @@ class SKU:
 
     def Recipes_containing(self, recipe_book):
         n_recipe = 0
-        for i in recipe_book:
+        for item in recipe_book.values():
             if (
-                self.name in recipe_book[i]
+                self.name in item["ingredients"]
             ):  # see if the ingredient is in each recipe in the book
                 n_recipe += 1
             else:
                 continue
-        self.n_recipes = n_recipe
-
-    def SKU_ID(self, SID_dict):
-        if self.name in SID_dict:  # if the information needs to be updated, but the
-            self.type_ID = SID_dict[self.name]
-        else:
-            # create a new entry in the list for the SKU
-            self.type_ID = len(SID_dict)
-            SID_dict[self.name] = self.type_ID
+        recipe_percent = n_recipe / len(recipe_book) * 100
+        self.recipe_percent = recipe_percent
 
 
 class Child(SKU):

@@ -3,18 +3,20 @@ from functions.WMAPE import wmape
 import matplotlib.pyplot as plt
 import numpy as np
 
-def generate_results(results_tuple :dict)  :
+
+def generate_results(results_tuple: dict):
     results_per_method = {}
     sorted_dict = dict(sorted(results_tuple[2].items(), key=lambda item: item[1]))
     mean_wmape = results_tuple[0]
     std_dev = np.std(list(results_tuple[2].values()))
     results_per_method = {"Mean": mean_wmape, "Standard deviation": std_dev}
-    sorted_dict = dict(sorted(results[2].items(), key=lambda item: item[1]))
+    sorted_dict = dict(sorted(results_tuple[2].items(), key=lambda item: item[1]))
     plt.bar(sorted_dict.keys(), sorted_dict.values(), 1, color="red")
     print(f"Factory Demand: {results_tuple[1]}")
     print(f"Mean WMAPE: {mean_wmape}")
     print(f"Factory-wise WMAPE: {results_tuple[2]}")
     print(f"Percentage of Orders Fulfilled {results_tuple[3]}")
+
 
 def generate_solutions(orders_dict: dict, Type: str):
     Type = Type.lower()
@@ -57,8 +59,11 @@ def generate_solutions(orders_dict: dict, Type: str):
                 demand[factory.factory_id], factory.factory_inventory
             )
         mean_wmape = sum(results.values()) / len(results)
-        results_tuple = tuple([mean_wmape,demand, results, fulfilled_percent])
+        results_tuple = tuple([mean_wmape, demand, results, fulfilled_percent])
 
     return results_tuple
-results = generate_solutions(Orders,"naive")
-generate_results(results)
+
+
+if __name__ == "__main__":
+    results = generate_solutions(Orders, "naive")
+    generate_results(results)

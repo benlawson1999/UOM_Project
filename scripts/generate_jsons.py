@@ -19,9 +19,6 @@ def create_clients(n: int):
     return client_json
 
 
-client_json = create_clients(100)
-with open("./automatic_data/config_clients.json", "w") as outfile:
-    json.dump(client_json, outfile)
 ingredients = [
     "Apple",
     "Banana",
@@ -60,11 +57,6 @@ def create_factories(n: int, ingredient_list: list):
     return factories_json
 
 
-factories_json = create_factories(n=50, ingredient_list=ingredients)
-with open("./automatic_data/config_factories.json", "w") as outfile:
-    json.dump(factories_json, outfile)
-
-
 def create_skus(ingredient_list: list):
     skus_json = {}
     for i in range(len(ingredient_list)):
@@ -80,12 +72,6 @@ def create_skus(ingredient_list: list):
     return skus_json
 
 
-skus_json = create_skus(ingredients)
-
-with open("./automatic_data/config_skus.json", "w") as outfile:
-    json.dump(skus_json, outfile)
-
-
 def create_recipes(n: int):
     recipes_json = {}
     for i in range(n):
@@ -97,12 +83,6 @@ def create_recipes(n: int):
             "quantities": (np.random.choice(range(1, 5), p)[0:p].tolist()),
         }
     return recipes_json
-
-
-recipes_json = create_recipes(20)
-
-with open("./automatic_data/config_recipes.json", "w") as outfile:
-    json.dump(recipes_json, outfile)
 
 
 def create_orders(n: int):
@@ -124,7 +104,28 @@ def create_orders(n: int):
     return orders_json
 
 
-orders_json = create_orders(15000)
+
+client_json = create_clients(100)
+
+with open("./automatic_data/config_clients.json", "w") as outfile:
+    json.dump(client_json, outfile)
+
+factories_json = create_factories(n=200, ingredient_list=ingredients)
+
+with open("./automatic_data/config_factories.json", "w") as outfile:
+    json.dump(factories_json, outfile)
+
+skus_json = create_skus(ingredients)
+
+with open("./automatic_data/config_skus.json", "w") as outfile:
+    json.dump(skus_json, outfile)
+
+recipes_json = create_recipes(20)
+
+with open("./automatic_data/config_recipes.json", "w") as outfile:
+    json.dump(recipes_json, outfile)
+
+orders_json = create_orders(1)
 
 with open("./automatic_data/config_orders.json", "w") as outfile:
     json.dump(orders_json, outfile)

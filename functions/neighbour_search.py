@@ -13,22 +13,28 @@ def neighbour_search(orders_dict: dict, Type: str, time_limit=60):
         raise ValueError(
             "Please only select one of naive, max or min as the objective function type"
         )
-    orders_rank = list(Orders.items())
+    orders_rank = list(orders_dict.items())
     timeout_start = time.time()
     i = 0  # iteration count
     best = (10000,)
     best_order = list(orders_dict.keys())
     while time.time() < timeout_start + time_limit:
-        print(i)
         time.sleep(0.25)  # allows rest for the cpu to reduce usage
         if i > 4:
-            return best, best_order # if 4 iterations go by without improvement, return current best
-        n = np.random.randint(0, len(orders_dict) / 2)
-        orders_head = orders_rank[:n]
-        orders_tail = orders_rank[n:]
-        np.random.shuffle(orders_tail)
-        orders_head.extend(orders_tail)
-        new_orders = dict(orders_head)
+            return (
+                best,
+                best_order,
+            )  # if 5 iterations go by without improvement, return current best
+        if len(orders_dict) < 2:
+            return generate_solutions(orders_dict, Type), best_order
+        else:
+            n = np.random.randint(0, round((len(orders_dict) / 2)))
+
+            orders_head = orders_rank[:n]
+            orders_tail = orders_rank[n:]
+            np.random.shuffle(orders_tail)
+            orders_head.extend(orders_tail)
+            new_orders = dict(orders_head)
 
         results = generate_solutions(new_orders, Type)
         if results[0] < best[0]:
@@ -40,5 +46,6 @@ def neighbour_search(orders_dict: dict, Type: str, time_limit=60):
     return best, best_order
 
 
-results, order = neighbour_search(Orders, "naive")
-generate_results(results)
+if __name__ == "__main__":
+    results, order = neighbour_search(Orders, "naive")
+    generate_results(results)

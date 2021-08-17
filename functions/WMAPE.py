@@ -14,4 +14,4 @@ def wmape(actual: dict, target: dict):
 
     else:
         final = sum_all / sum_actual
-    return final * 100
+    return final

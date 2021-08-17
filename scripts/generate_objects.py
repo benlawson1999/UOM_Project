@@ -55,11 +55,7 @@ def generate_recipes(data: dict):
 Factories = generate_factories(
     json.load(open("./automatic_data/config_factories.json"))
 )
-
 Clients = generate_clients(json.load(open("./automatic_data/config_clients.json")))
-
 Orders = generate_orders(json.load(open("./automatic_data/config_orders.json")))
-
 SKUs = generate_skus(json.load(open("./automatic_data/config_skus.json")))
-
 Recipes = generate_recipes(json.load(open("./automatic_data/config_recipes.json")))

@@ -39,7 +39,7 @@ def create_factories(n: int, ingredient_list: list):
     inventory = {}
     inventory_size = np.random.choice([0, "1"], 100000, p=[0.05, 0.95])
     mask = inventory_size == "1"
-    inventory_size[mask] = np.random.choice(200, len(inventory_size[mask]))
+    inventory_size[mask] = np.random.choice(1000, len(inventory_size[mask]))
     for i in range(n):
         ingredients = {}
         ingredient_inv = {}
@@ -107,24 +107,24 @@ def create_orders(n: int):
 client_json = create_clients(100)
 
 with open("./automatic_data/config_clients.json", "w") as outfile:
-    json.dump(client_json, outfile)
+    json.dump(client_json, outfile, indent=4)
 
-factories_json = create_factories(n=200, ingredient_list=ingredients)
+factories_json = create_factories(n=10, ingredient_list=ingredients)
 
 with open("./automatic_data/config_factories.json", "w") as outfile:
-    json.dump(factories_json, outfile)
+    json.dump(factories_json, outfile, indent=4)
 
 skus_json = create_skus(ingredients)
 
 with open("./automatic_data/config_skus.json", "w") as outfile:
-    json.dump(skus_json, outfile)
+    json.dump(skus_json, outfile, indent=4)
 
 recipes_json = create_recipes(20)
 
 with open("./automatic_data/config_recipes.json", "w") as outfile:
-    json.dump(recipes_json, outfile)
+    json.dump(recipes_json, outfile, indent=4)
 
-orders_json = create_orders(1)
+orders_json = create_orders(100)
 
 with open("./automatic_data/config_orders.json", "w") as outfile:
-    json.dump(orders_json, outfile)
+    json.dump(orders_json, outfile, indent=4)

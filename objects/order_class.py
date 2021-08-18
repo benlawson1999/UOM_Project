@@ -1,6 +1,7 @@
 """test"""
 import random
 import operator
+import numpy as np
 
 
 class Order:
@@ -12,11 +13,15 @@ class Order:
         "factory_id",
         "combined",
         "fulfilled",
+        "optimal_distance",
+        "factory_distance",
+        "difference_distance",
     ]
 
     def __init__(self, order_id: int, **kwargs):
         self.order_id = order_id
         self.combined = None
+        self.factory_distance = 1000
         for key, value in kwargs.items():
             setattr(self, key, value)
 
@@ -41,6 +46,15 @@ class Order:
                 order_total[i] = 1
         self.combined = order_total
 
+    def optimal_distance_calc(self, factories_dict: dict, client_dict: dict):
+        all_distances = np.array([])
+        for factory in factories_dict.values():
+            all_distances = np.append(
+                all_distances,
+                (factory.consumer_distance(client_dict[self.client_id].postcode)),
+            )
+        self.optimal_distance = np.min(all_distances)
+
     def eligibility_check(self, factories_dict: dict, demand: dict):
 
         eligible_list = []
@@ -52,7 +66,9 @@ class Order:
         }
         return eligible_factories
 
-    def optimal_factory_naive(self, factories_dict: dict, demand: dict):
+    def optimal_factory_naive(
+        self, factories_dict: dict, demand: dict, client_dict: dict
+    ):
 
         eligible_factories = self.eligibility_check(factories_dict, demand)
 
@@ -61,11 +77,17 @@ class Order:
             return self.fulfilled
         else:
             optimal_id = random.choice(list(eligible_factories))
+            self.factory_distance = factories_dict[optimal_id].consumer_distance(
+                client_dict[self.client_id].postcode
+            )
+            self.difference_distance = self.factory_distance - self.optimal_distance
             self.factory_id = optimal_id
             self.fulfilled = 1
             return optimal_id
 
-    def optimal_factory_ranking_max(self, factories_dict: dict, demand: dict):
+    def optimal_factory_ranking_max(
+        self, factories_dict: dict, demand: dict, client_dict: dict
+    ):
         eligible_factories = self.eligibility_check(factories_dict, demand)
         factories_quantity = {}
         if not eligible_factories:
@@ -79,11 +101,17 @@ class Order:
                         factory
                     ].factory_inventory[item]
             optimal_id = max(factories_quantity.items(), key=operator.itemgetter(1))[0]
+            self.factory_distance = factories_dict[optimal_id].consumer_distance(
+                client_dict[self.client_id].postcode
+            )
+            self.difference_distance = self.factory_distance - self.optimal_distance
             self.factory_id = optimal_id
             self.fulfilled = 1
             return optimal_id
 
-    def optimal_factory_ranking_min(self, factories_dict: dict, demand: dict):
+    def optimal_factory_ranking_min(
+        self, factories_dict: dict, demand: dict, client_dict: dict
+    ):
         eligible_factories = self.eligibility_check(factories_dict, demand)
         factories_quantity = {}
         if not eligible_factories:
@@ -98,6 +126,10 @@ class Order:
                     ].factory_inventory[item]
 
             optimal_id = min(factories_quantity.items(), key=operator.itemgetter(1))[0]
+            self.factory_distance = factories_dict[optimal_id].consumer_distance(
+                client_dict[self.client_id].postcode
+            )
+            self.difference_distance = self.factory_distance - self.optimal_distance
             self.factory_id = optimal_id
             self.fulfilled = 1
 

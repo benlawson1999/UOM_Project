@@ -1,9 +1,10 @@
-# import pgeocode  # may need to be installed at the copmmand line
+import pgeocode
 from collections import Counter
 
 import random
 
-# gb_pc = pgeocode.GeoDistance("GB")
+
+gb_pc = pgeocode.GeoDistance("GB")
 
 
 class Factory:
@@ -54,7 +55,7 @@ class Factory:
 
         return self.eligible
 
-    def Cons_dist(self, order):
+    def consumer_distance(self, order_location):
         # Function to find the Haversine distance between the factory and the order
-        fact_dist = gb_pc.query_postal_code(self.postcode, order.location)
+        fact_dist = gb_pc.query_postal_code(self.postcode, order_location)
         return fact_dist

@@ -28,11 +28,12 @@ def generate_clients(data: dict):
     return clients
 
 
-def generate_orders(data: dict):
+def generate_orders(data: dict, factories_dict, client_dict):
     """Code to generate orders"""
     orders = {}
     for key, value in data.items():
         orders[key] = Order(order_id=key, **value)
+        orders[key].optimal_distance_calc(factories_dict, client_dict)
     return orders
 
 
@@ -55,7 +56,14 @@ def generate_recipes(data: dict):
 Factories = generate_factories(
     json.load(open("./automatic_data/config_factories.json"))
 )
+print(0)
 Clients = generate_clients(json.load(open("./automatic_data/config_clients.json")))
-Orders = generate_orders(json.load(open("./automatic_data/config_orders.json")))
+print(1)
+Orders = generate_orders(
+    json.load(open("./automatic_data/config_orders.json")), Factories, Clients
+)
+print(2)
 SKUs = generate_skus(json.load(open("./automatic_data/config_skus.json")))
+print(3)
 Recipes = generate_recipes(json.load(open("./automatic_data/config_recipes.json")))
+print(4)

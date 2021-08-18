@@ -14,26 +14,24 @@ def generate_results(results_tuple: dict):
     plt.bar(sorted_dict.keys(), sorted_dict.values(), 1, color="red")
     print(f"Factory Demand: {results_tuple[1]}")
     print(f"Mean WMAPE: {mean_wmape}")
-    print(f"Factory-wise WMAPE: {results_tuple[2]}")
+    print(f"Factory-wise WMAPE: {sorted_dict}")
     print(f"Percentage of Orders Fulfilled {results_tuple[3]}")
 
 
-def generate_solutions(orders_dict: dict, Type: str):
-    Type = Type.lower()
-    if Type not in ["naive", "max", "min"]:
-        raise ValueError(
-            "Please only select one of naive, max or min as the objective function type"
-        )
+def generate_solutions(orders_dict: dict, algorithm: str, client_dict: dict):
+    algorithm = algorithm.lower()
+    if algorithm not in ["naive", "max", "min"]:
+        raise ValueError("Please only select one of naive, max or min as the algorithm")
     demand = {}
     fulfilled_count = 0
     for order in Orders.values():
         order.order_list(Recipes)  # combined the recipes into a list of ingredients
-        if Type == "naive":
-            order.optimal_factory_naive(Factories, demand)
-        elif Type == "max":
-            order.optimal_factory_ranking_max(Factories, demand)
-        elif Type == "min":
-            order.optimal_factory_ranking_min(Factories, demand)
+        if algorithm == "naive":
+            order.optimal_factory_naive(Factories, demand, client_dict)
+        elif algorithm == "max":
+            order.optimal_factory_ranking_max(Factories, demand, client_dict)
+        elif algorithm == "min":
+            order.optimal_factory_ranking_min(Factories, demand, client_dict)
         # choose the factory with the highest quanitity of ingredients in the order
         fulfilled_count += order.fulfilled  # 1 added if fulfilled, 0 if not
         for item, value in order.combined.items():
@@ -65,5 +63,5 @@ def generate_solutions(orders_dict: dict, Type: str):
 
 
 if __name__ == "__main__":
-    results = generate_solutions(Orders, "naive")
+    results = generate_solutions(Orders, "naive", Clients)
     generate_results(results)

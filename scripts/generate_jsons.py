@@ -104,7 +104,6 @@ def create_orders(n: int):
     return orders_json
 
 
-
 client_json = create_clients(100)
 
 with open("./automatic_data/config_clients.json", "w") as outfile:

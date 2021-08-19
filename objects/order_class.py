@@ -22,6 +22,7 @@ class Order:
         self.order_id = order_id
         self.combined = None
         self.factory_distance = 1000
+
         for key, value in kwargs.items():
             setattr(self, key, value)
 
@@ -46,14 +47,8 @@ class Order:
                 order_total[i] = 1
         self.combined = order_total
 
-    def optimal_distance_calc(self, factories_dict: dict, client_dict: dict):
-        all_distances = np.array([])
-        for factory in factories_dict.values():
-            all_distances = np.append(
-                all_distances,
-                (factory.consumer_distance(client_dict[self.client_id].postcode)),
-            )
-        self.optimal_distance = np.min(all_distances)
+    def optimal_distance_setter(self, client_dict):
+        self.optimal_distance = client_dict[self.client_id].optimal_distance
 
     def eligibility_check(self, factories_dict: dict, demand: dict):
 

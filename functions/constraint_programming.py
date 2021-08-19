@@ -12,6 +12,7 @@ def main(factory_dict, client_dict, order_dict, sku_dict, recipe_dict, exact=Tru
     for count, item in enumerate(order_dict.values()):
 
         all_orders[count] = item
+        item.order_list(recipe_dict)
 
     # creates a dict of int:object for use by or_tools
     all_factories = {}
@@ -20,6 +21,7 @@ def main(factory_dict, client_dict, order_dict, sku_dict, recipe_dict, exact=Tru
 
         all_factories[count] = item
         # creates a dict of int:object for use by or_tools
+    error_abs = [model.NewIntVar(0, 10000, 'x_loss_abs_%i' % i) for i in range(len(all_factories))]
     all_skus = {}
 
     for count, item in enumerate(sku_dict.values()):
@@ -27,7 +29,7 @@ def main(factory_dict, client_dict, order_dict, sku_dict, recipe_dict, exact=Tru
         all_skus[count] = item
         # creates a dict of int:object for use by or_tools
 
-    for count_factory, factory in enumerate(all_factories.items()):
+    for count_factory, factory in all_factories.items():
 
         fulfilled = {}  # dict of [factory_id,order_id] : BoolVar
 
@@ -35,16 +37,18 @@ def main(factory_dict, client_dict, order_dict, sku_dict, recipe_dict, exact=Tru
 
         factory_demand = {}  # dict of [factory_id, type_id] : IntVar
 
-        for count_order, order in enumerate(all_orders.items()):
 
-            prefix = "%s_" % (factory.factory_id,)
-            suffix = "_%s" % (order.order_id,)
+        for count_order, order in all_orders.items():
+
+            prefix = "%s_" % factory.factory_id
+            suffix = "_%s" % order.order_id
             fulfilled[(count_factory, count_order)] = model.NewBoolVar(
                 prefix + "fulfilled" + suffix
             )
+
             # binary variables for each order fulfilled by the factory
 
-        for count_sku, sku in enumerate(all_skus.items()):
+        for count_sku, sku in all_skus.items():
             prefix = "%s_%s_" % (factory.factory_id, sku.name)
             factory_demand[(count_factory, count_sku)] = model.NewIntVar(
                 0,
@@ -55,28 +59,27 @@ def main(factory_dict, client_dict, order_dict, sku_dict, recipe_dict, exact=Tru
                 sku.name
             ]
             # creates a measure of the current quantity in the factories
+            temp = model.NewIntVar(-1000,1000, "temp")
+            model.Add(temp == factory_demand[(count_factory, count_sku)]
+            - factory_quantity[(count_factory, count_sku)])
+            model.AddAbsEquality(error_abs[count_factory],temp)
 
-            weight = abs(
-                factory_demand[(count_factory, count_sku)]
-                - factory_quantity[(count_factory, count_sku)]
-            )
-
-            sum_all += weight
+            sum_all += error_abs[count_factory]
             sum_actual += factory_demand[(count_factory, count_sku)]
 
-    for count_order, order in enumerate(all_orders.items()):
+    for count_order, order in all_orders.items():
         fulfilled_by = {}  # dict of [order_id,factory_id] : BoolVar
         items = {}  # dict of [order_id, type_id] : Int
 
-        for count_factory, factory in enumerate(all_factories.items()):
+        for count_factory, factory in all_factories.items():
             prefix = "%s_" % (order.order_id)
             suffix = "_%s" % (factory.factory_id)
             fulfilled_by[(count_order, count_factory)] = model.NewBoolVar(
                 prefix + "fulfilled_by" + suffix
             )
             # binary varibale for which factory fullfiled the order
-        for count_sku, sku in enumerate(all_skus.items()):
-            if order.combined[sku.name] is None:
+        for count_sku, sku in all_skus.items():
+            if order.combined[sku.name] == None:
                 items[(count_order, count_sku)] = 0
                 # incase there is none of an ingredient in the order
 
@@ -88,17 +91,18 @@ def main(factory_dict, client_dict, order_dict, sku_dict, recipe_dict, exact=Tru
         for factory in list(all_factories.keys()):
             for order in list(all_orders.keys()):
                 if exact == True:
+
                     model.Add(
                         sum(
-                            fulfilled_by[(order, factory)]
-                            for factory in list(all_factories.keys()) == 1
-                        )
+                            [fulfilled_by[(order, factory_c)]
+                            for factory_c in list(all_factories.keys())]) == 1
+
                     )  # ensure that all orders have been fulfilled
                 else:
                     model.Add(
                         sum(
-                            fulfilled_by[(order, factory)]
-                            for factory in list(all_factories.keys()) <= 1
+                            [fulfilled_by[(order, factory)]
+                            for factory in list(all_factories.keys())] <= 1
                         )
                     )  # to allow for some orders not being fulfilled
                 model.Add(fulfilled_by[(order, factory)] == fulfilled[(factory, order)])
@@ -120,6 +124,24 @@ def main(factory_dict, client_dict, order_dict, sku_dict, recipe_dict, exact=Tru
         # [END CONSTRAINTS]
 
         # [START OBJECTIVE]
-        obj_var = model.NewIntVar(0, 100, "WMAPE")
-        model.AddMaxEquality(obj_var, [(sum_all / sum_actual) / len(all_orders)])
+        obj_var = model.NewIntVar(0, 100, "Mean WMAPE")
+        numerator = model.NewIntVar(0, 500000, 'sum_all')
+        denom = model.NewIntVar(0, 500000, 'sum_actual')
+        wmape = model.NewIntVar(0, 100, 'WMAPE')
+        length = model.NewIntVar(0,50000, 'Length')
+        mean_wmape = model.NewIntVar(0,100, "Mean_wmape")
+
+
+        model.Add(numerator == sum_all)
+        model.Add(denom == sum_actual)
+        model.Add(length == len(factory_dict))
+        model.AddDivisionEquality(wmape, numerator, denom)
+        model.AddDivisionEquality(mean_wmape, wmape,length)
         model.Minimize(obj_var)
+        # [END OBJECTIVE]
+
+        solver = cp_model.CpSolver()
+        status = solver.Solve(model)
+
+        print("Optimal Weighted MAPE:%i" %solver.ObjectiveValue())
+main(Factories, Clients, Orders, SKUs, Recipes)

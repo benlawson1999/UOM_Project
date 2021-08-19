@@ -1,702 +1,702 @@
 {
-  "client_0": {
-    "postcode": "NN14",
-    "tenure": 0,
-    "income": 185000,
-    "age": 64,
-    "churn_chance": 39
-  },
-  "client_1": {
-    "postcode": "LD7",
-    "tenure": 4,
-    "income": 132000,
-    "age": 44,
-    "churn_chance": 75
-  },
-  "client_2": {
-    "postcode": "IV4",
-    "tenure": 1,
-    "income": 93000,
-    "age": 95,
-    "churn_chance": 76
-  },
-  "client_3": {
-    "postcode": "BH12",
-    "tenure": 1,
-    "income": 78000,
-    "age": 43,
-    "churn_chance": 36
-  },
-  "client_4": {
-    "postcode": "CA6",
-    "tenure": 6,
-    "income": 31000,
-    "age": 71,
-    "churn_chance": 50
-  },
-  "client_5": {
-    "postcode": "PL34",
-    "tenure": 1,
-    "income": 190000,
-    "age": 57,
-    "churn_chance": 18
-  },
-  "client_6": {
-    "postcode": "LE7",
-    "tenure": 6,
-    "income": 68000,
-    "age": 19,
-    "churn_chance": 49
-  },
-  "client_7": {
-    "postcode": "NG34",
-    "tenure": 3,
-    "income": 18000,
-    "age": 27,
-    "churn_chance": 15
-  },
-  "client_8": {
-    "postcode": "DG9",
-    "tenure": 5,
-    "income": 100000,
-    "age": 20,
-    "churn_chance": 41
-  },
-  "client_9": {
-    "postcode": "LE12",
-    "tenure": 7,
-    "income": 122000,
-    "age": 18,
-    "churn_chance": 28
-  },
-  "client_10": {
-    "postcode": "SP9",
-    "tenure": 4,
-    "income": 13000,
-    "age": 98,
-    "churn_chance": 49
-  },
-  "client_11": {
-    "postcode": "PE34",
-    "tenure": 0,
-    "income": 103000,
-    "age": 40,
-    "churn_chance": 4
-  },
-  "client_12": {
-    "postcode": "WA6",
-    "tenure": 4,
-    "income": 166000,
-    "age": 21,
-    "churn_chance": 69
-  },
-  "client_13": {
-    "postcode": "DL3",
-    "tenure": 7,
-    "income": 140000,
-    "age": 97,
-    "churn_chance": 12
-  },
-  "client_14": {
-    "postcode": "SN8",
-    "tenure": 0,
-    "income": 160000,
-    "age": 85,
-    "churn_chance": 17
-  },
-  "client_15": {
-    "postcode": "B80",
-    "tenure": 4,
-    "income": 128000,
-    "age": 63,
-    "churn_chance": 10
-  },
-  "client_16": {
-    "postcode": "TA11",
-    "tenure": 1,
-    "income": 106000,
-    "age": 32,
-    "churn_chance": 53
-  },
-  "client_17": {
-    "postcode": "SY4",
-    "tenure": 4,
-    "income": 171000,
-    "age": 85,
-    "churn_chance": 98
-  },
-  "client_18": {
-    "postcode": "NR16",
-    "tenure": 3,
-    "income": 64000,
-    "age": 74,
-    "churn_chance": 92
-  },
-  "client_19": {
-    "postcode": "TQ9",
-    "tenure": 5,
-    "income": 178000,
-    "age": 97,
-    "churn_chance": 24
-  },
-  "client_20": {
-    "postcode": "CA10",
-    "tenure": 5,
-    "income": 56000,
-    "age": 37,
-    "churn_chance": 56
-  },
-  "client_21": {
-    "postcode": "DL4",
-    "tenure": 2,
-    "income": 186000,
-    "age": 51,
-    "churn_chance": 72
-  },
-  "client_22": {
-    "postcode": "BT2",
-    "tenure": 5,
-    "income": 83000,
-    "age": 47,
-    "churn_chance": 42
-  },
-  "client_23": {
-    "postcode": "DY14",
-    "tenure": 1,
-    "income": 89000,
-    "age": 35,
-    "churn_chance": 54
-  },
-  "client_24": {
-    "postcode": "HG4",
-    "tenure": 5,
-    "income": 182000,
-    "age": 48,
-    "churn_chance": 2
-  },
-  "client_25": {
-    "postcode": "CR90",
-    "tenure": 4,
-    "income": 17000,
-    "age": 58,
-    "churn_chance": 7
-  },
-  "client_26": {
-    "postcode": "DN20",
-    "tenure": 1,
-    "income": 62000,
-    "age": 65,
-    "churn_chance": 32
-  },
-  "client_27": {
-    "postcode": "EX14",
-    "tenure": 0,
-    "income": 128000,
-    "age": 92,
-    "churn_chance": 79
-  },
-  "client_28": {
-    "postcode": "IP7",
-    "tenure": 0,
-    "income": 167000,
-    "age": 52,
-    "churn_chance": 65
-  },
-  "client_29": {
-    "postcode": "WF8",
-    "tenure": 1,
-    "income": 169000,
-    "age": 29,
-    "churn_chance": 19
-  },
-  "client_30": {
-    "postcode": "SO32",
-    "tenure": 6,
-    "income": 62000,
-    "age": 67,
-    "churn_chance": 49
-  },
-  "client_31": {
-    "postcode": "TN25",
-    "tenure": 8,
-    "income": 185000,
-    "age": 47,
-    "churn_chance": 47
-  },
-  "client_32": {
-    "postcode": "GL5",
-    "tenure": 7,
-    "income": 69000,
-    "age": 48,
-    "churn_chance": 56
-  },
-  "client_33": {
-    "postcode": "LL28",
-    "tenure": 4,
-    "income": 67000,
-    "age": 42,
-    "churn_chance": 48
-  },
-  "client_34": {
-    "postcode": "RG9",
-    "tenure": 0,
-    "income": 29000,
-    "age": 46,
-    "churn_chance": 97
-  },
-  "client_35": {
-    "postcode": "BS16",
-    "tenure": 5,
-    "income": 177000,
-    "age": 77,
-    "churn_chance": 44
-  },
-  "client_36": {
-    "postcode": "PR5",
-    "tenure": 5,
-    "income": 2000,
-    "age": 48,
-    "churn_chance": 51
-  },
-  "client_37": {
-    "postcode": "TA16",
-    "tenure": 4,
-    "income": 150000,
-    "age": 62,
-    "churn_chance": 49
-  },
-  "client_38": {
-    "postcode": "PO12",
-    "tenure": 6,
-    "income": 159000,
-    "age": 70,
-    "churn_chance": 79
-  },
-  "client_39": {
-    "postcode": "LA22",
-    "tenure": 1,
-    "income": 51000,
-    "age": 59,
-    "churn_chance": 91
-  },
-  "client_40": {
-    "postcode": "IP22",
-    "tenure": 0,
-    "income": 125000,
-    "age": 57,
-    "churn_chance": 51
-  },
-  "client_41": {
-    "postcode": "DA2",
-    "tenure": 7,
-    "income": 55000,
-    "age": 26,
-    "churn_chance": 42
-  },
-  "client_42": {
-    "postcode": "CM5",
-    "tenure": 6,
-    "income": 104000,
-    "age": 32,
-    "churn_chance": 0
-  },
-  "client_43": {
-    "postcode": "SK17",
-    "tenure": 2,
-    "income": 156000,
-    "age": 44,
-    "churn_chance": 74
-  },
-  "client_44": {
-    "postcode": "MK19",
-    "tenure": 2,
-    "income": 198000,
-    "age": 19,
-    "churn_chance": 53
-  },
-  "client_45": {
-    "postcode": "TA10",
-    "tenure": 3,
-    "income": 139000,
-    "age": 37,
-    "churn_chance": 99
-  },
-  "client_46": {
-    "postcode": "YO22",
-    "tenure": 7,
-    "income": 162000,
-    "age": 35,
-    "churn_chance": 99
-  },
-  "client_47": {
-    "postcode": "DL8",
-    "tenure": 5,
-    "income": 78000,
-    "age": 33,
-    "churn_chance": 47
-  },
-  "client_48": {
-    "postcode": "N8",
-    "tenure": 3,
-    "income": 39000,
-    "age": 38,
-    "churn_chance": 95
-  },
-  "client_49": {
-    "postcode": "KY8",
-    "tenure": 0,
-    "income": 102000,
-    "age": 79,
-    "churn_chance": 56
-  },
-  "client_50": {
-    "postcode": "ST14",
-    "tenure": 5,
-    "income": 160000,
-    "age": 38,
-    "churn_chance": 13
-  },
-  "client_51": {
-    "postcode": "EC3M",
-    "tenure": 5,
-    "income": 121000,
-    "age": 20,
-    "churn_chance": 71
-  },
-  "client_52": {
-    "postcode": "SY5",
-    "tenure": 3,
-    "income": 140000,
-    "age": 96,
-    "churn_chance": 11
-  },
-  "client_53": {
-    "postcode": "SP6",
-    "tenure": 5,
-    "income": 164000,
-    "age": 40,
-    "churn_chance": 21
-  },
-  "client_54": {
-    "postcode": "TQ12",
-    "tenure": 5,
-    "income": 117000,
-    "age": 39,
-    "churn_chance": 23
-  },
-  "client_55": {
-    "postcode": "DG16",
-    "tenure": 5,
-    "income": 190000,
-    "age": 28,
-    "churn_chance": 46
-  },
-  "client_56": {
-    "postcode": "NR35",
-    "tenure": 7,
-    "income": 129000,
-    "age": 62,
-    "churn_chance": 64
-  },
-  "client_57": {
-    "postcode": "ST21",
-    "tenure": 6,
-    "income": 172000,
-    "age": 64,
-    "churn_chance": 6
-  },
-  "client_58": {
-    "postcode": "PE23",
-    "tenure": 3,
-    "income": 197000,
-    "age": 53,
-    "churn_chance": 68
-  },
-  "client_59": {
-    "postcode": "KW12",
-    "tenure": 4,
-    "income": 109000,
-    "age": 86,
-    "churn_chance": 15
-  },
-  "client_60": {
-    "postcode": "DG2",
-    "tenure": 1,
-    "income": 182000,
-    "age": 87,
-    "churn_chance": 43
-  },
-  "client_61": {
-    "postcode": "LE4",
-    "tenure": 6,
-    "income": 16000,
-    "age": 91,
-    "churn_chance": 5
-  },
-  "client_62": {
-    "postcode": "TD12",
-    "tenure": 5,
-    "income": 86000,
-    "age": 61,
-    "churn_chance": 8
-  },
-  "client_63": {
-    "postcode": "NE67",
-    "tenure": 5,
-    "income": 83000,
-    "age": 90,
-    "churn_chance": 67
-  },
-  "client_64": {
-    "postcode": "NR17",
-    "tenure": 0,
-    "income": 50000,
-    "age": 94,
-    "churn_chance": 11
-  },
-  "client_65": {
-    "postcode": "HP18",
-    "tenure": 5,
-    "income": 3000,
-    "age": 41,
-    "churn_chance": 44
-  },
-  "client_66": {
-    "postcode": "TR2",
-    "tenure": 8,
-    "income": 138000,
-    "age": 79,
-    "churn_chance": 15
-  },
-  "client_67": {
-    "postcode": "DG1",
-    "tenure": 3,
-    "income": 135000,
-    "age": 79,
-    "churn_chance": 61
-  },
-  "client_68": {
-    "postcode": "ZE2",
-    "tenure": 2,
-    "income": 66000,
-    "age": 84,
-    "churn_chance": 70
-  },
-  "client_69": {
-    "postcode": "TD2",
-    "tenure": 0,
-    "income": 98000,
-    "age": 95,
-    "churn_chance": 59
-  },
-  "client_70": {
-    "postcode": "TF6",
-    "tenure": 8,
-    "income": 128000,
-    "age": 80,
-    "churn_chance": 65
-  },
-  "client_71": {
-    "postcode": "G84",
-    "tenure": 3,
-    "income": 140000,
-    "age": 57,
-    "churn_chance": 45
-  },
-  "client_72": {
-    "postcode": "HG3",
-    "tenure": 2,
-    "income": 177000,
-    "age": 76,
-    "churn_chance": 96
-  },
-  "client_73": {
-    "postcode": "NR20",
-    "tenure": 6,
-    "income": 10000,
-    "age": 73,
-    "churn_chance": 2
-  },
-  "client_74": {
-    "postcode": "CB3",
-    "tenure": 7,
-    "income": 128000,
-    "age": 29,
-    "churn_chance": 84
-  },
-  "client_75": {
-    "postcode": "BT80",
-    "tenure": 4,
-    "income": 171000,
-    "age": 20,
-    "churn_chance": 33
-  },
-  "client_76": {
-    "postcode": "LL48",
-    "tenure": 0,
-    "income": 196000,
-    "age": 40,
-    "churn_chance": 69
-  },
-  "client_77": {
-    "postcode": "E14",
-    "tenure": 7,
-    "income": 166000,
-    "age": 90,
-    "churn_chance": 71
-  },
-  "client_78": {
-    "postcode": "YO24",
-    "tenure": 1,
-    "income": 184000,
-    "age": 26,
-    "churn_chance": 38
-  },
-  "client_79": {
-    "postcode": "YO17",
-    "tenure": 7,
-    "income": 183000,
-    "age": 67,
-    "churn_chance": 62
-  },
-  "client_80": {
-    "postcode": "PH22",
-    "tenure": 6,
-    "income": 40000,
-    "age": 56,
-    "churn_chance": 11
-  },
-  "client_81": {
-    "postcode": "PH17",
-    "tenure": 5,
-    "income": 110000,
-    "age": 87,
-    "churn_chance": 56
-  },
-  "client_82": {
-    "postcode": "PE16",
-    "tenure": 3,
-    "income": 58000,
-    "age": 91,
-    "churn_chance": 28
-  },
-  "client_83": {
-    "postcode": "EX19",
-    "tenure": 3,
-    "income": 25000,
-    "age": 19,
-    "churn_chance": 42
-  },
-  "client_84": {
-    "postcode": "BS10",
-    "tenure": 3,
-    "income": 32000,
-    "age": 53,
-    "churn_chance": 34
-  },
-  "client_85": {
-    "postcode": "PL33",
-    "tenure": 0,
-    "income": 35000,
-    "age": 26,
-    "churn_chance": 20
-  },
-  "client_86": {
-    "postcode": "CA99",
-    "tenure": 8,
-    "income": 55000,
-    "age": 64,
-    "churn_chance": 54
-  },
-  "client_87": {
-    "postcode": "CM0",
-    "tenure": 2,
-    "income": 35000,
-    "age": 57,
-    "churn_chance": 60
-  },
-  "client_88": {
-    "postcode": "DD8",
-    "tenure": 8,
-    "income": 194000,
-    "age": 56,
-    "churn_chance": 37
-  },
-  "client_89": {
-    "postcode": "NE69",
-    "tenure": 4,
-    "income": 85000,
-    "age": 60,
-    "churn_chance": 81
-  },
-  "client_90": {
-    "postcode": "WA4",
-    "tenure": 3,
-    "income": 116000,
-    "age": 41,
-    "churn_chance": 65
-  },
-  "client_91": {
-    "postcode": "HP23",
-    "tenure": 3,
-    "income": 117000,
-    "age": 26,
-    "churn_chance": 93
-  },
-  "client_92": {
-    "postcode": "GU26",
-    "tenure": 3,
-    "income": 103000,
-    "age": 69,
-    "churn_chance": 11
-  },
-  "client_93": {
-    "postcode": "PR6",
-    "tenure": 6,
-    "income": 102000,
-    "age": 55,
-    "churn_chance": 7
-  },
-  "client_94": {
-    "postcode": "CH30",
-    "tenure": 2,
-    "income": 173000,
-    "age": 47,
-    "churn_chance": 32
-  },
-  "client_95": {
-    "postcode": "GL2",
-    "tenure": 1,
-    "income": 88000,
-    "age": 77,
-    "churn_chance": 11
-  },
-  "client_96": {
-    "postcode": "RM18",
-    "tenure": 1,
-    "income": 188000,
-    "age": 25,
-    "churn_chance": 74
-  },
-  "client_97": {
-    "postcode": "YO18",
-    "tenure": 7,
-    "income": 190000,
-    "age": 37,
-    "churn_chance": 69
-  },
-  "client_98": {
-    "postcode": "PH41",
-    "tenure": 3,
-    "income": 36000,
-    "age": 87,
-    "churn_chance": 73
-  },
-  "client_99": {
-    "postcode": "KW17",
-    "tenure": 5,
-    "income": 124000,
-    "age": 73,
-    "churn_chance": 68
-  }
+    "client_0": {
+        "postcode": "KY4",
+        "tenure": 8,
+        "income": 11000,
+        "age": 86,
+        "churn_chance": 51
+    },
+    "client_1": {
+        "postcode": "EH34",
+        "tenure": 1,
+        "income": 187000,
+        "age": 46,
+        "churn_chance": 61
+    },
+    "client_2": {
+        "postcode": "LL32",
+        "tenure": 4,
+        "income": 165000,
+        "age": 58,
+        "churn_chance": 52
+    },
+    "client_3": {
+        "postcode": "CV35",
+        "tenure": 2,
+        "income": 79000,
+        "age": 57,
+        "churn_chance": 98
+    },
+    "client_4": {
+        "postcode": "YO22",
+        "tenure": 5,
+        "income": 189000,
+        "age": 28,
+        "churn_chance": 33
+    },
+    "client_5": {
+        "postcode": "NG12",
+        "tenure": 1,
+        "income": 25000,
+        "age": 28,
+        "churn_chance": 54
+    },
+    "client_6": {
+        "postcode": "BA4",
+        "tenure": 4,
+        "income": 17000,
+        "age": 68,
+        "churn_chance": 40
+    },
+    "client_7": {
+        "postcode": "LN9",
+        "tenure": 3,
+        "income": 157000,
+        "age": 94,
+        "churn_chance": 69
+    },
+    "client_8": {
+        "postcode": "BB7",
+        "tenure": 7,
+        "income": 45000,
+        "age": 56,
+        "churn_chance": 75
+    },
+    "client_9": {
+        "postcode": "TS19",
+        "tenure": 3,
+        "income": 114000,
+        "age": 37,
+        "churn_chance": 4
+    },
+    "client_10": {
+        "postcode": "LD7",
+        "tenure": 8,
+        "income": 116000,
+        "age": 56,
+        "churn_chance": 38
+    },
+    "client_11": {
+        "postcode": "ST6",
+        "tenure": 0,
+        "income": 109000,
+        "age": 63,
+        "churn_chance": 85
+    },
+    "client_12": {
+        "postcode": "FK8",
+        "tenure": 4,
+        "income": 118000,
+        "age": 98,
+        "churn_chance": 19
+    },
+    "client_13": {
+        "postcode": "SN15",
+        "tenure": 5,
+        "income": 10000,
+        "age": 39,
+        "churn_chance": 73
+    },
+    "client_14": {
+        "postcode": "NR6",
+        "tenure": 4,
+        "income": 127000,
+        "age": 35,
+        "churn_chance": 77
+    },
+    "client_15": {
+        "postcode": "SK12",
+        "tenure": 6,
+        "income": 72000,
+        "age": 35,
+        "churn_chance": 81
+    },
+    "client_16": {
+        "postcode": "AB41",
+        "tenure": 8,
+        "income": 106000,
+        "age": 52,
+        "churn_chance": 9
+    },
+    "client_17": {
+        "postcode": "CB23",
+        "tenure": 4,
+        "income": 190000,
+        "age": 26,
+        "churn_chance": 84
+    },
+    "client_18": {
+        "postcode": "HS2",
+        "tenure": 2,
+        "income": 83000,
+        "age": 69,
+        "churn_chance": 81
+    },
+    "client_19": {
+        "postcode": "NG34",
+        "tenure": 0,
+        "income": 58000,
+        "age": 81,
+        "churn_chance": 49
+    },
+    "client_20": {
+        "postcode": "IP8",
+        "tenure": 5,
+        "income": 178000,
+        "age": 48,
+        "churn_chance": 100
+    },
+    "client_21": {
+        "postcode": "AB41",
+        "tenure": 7,
+        "income": 105000,
+        "age": 100,
+        "churn_chance": 42
+    },
+    "client_22": {
+        "postcode": "NR35",
+        "tenure": 3,
+        "income": 180000,
+        "age": 41,
+        "churn_chance": 37
+    },
+    "client_23": {
+        "postcode": "SP5",
+        "tenure": 6,
+        "income": 100000,
+        "age": 27,
+        "churn_chance": 32
+    },
+    "client_24": {
+        "postcode": "EX15",
+        "tenure": 8,
+        "income": 109000,
+        "age": 66,
+        "churn_chance": 53
+    },
+    "client_25": {
+        "postcode": "LL24",
+        "tenure": 7,
+        "income": 98000,
+        "age": 85,
+        "churn_chance": 56
+    },
+    "client_26": {
+        "postcode": "S18",
+        "tenure": 1,
+        "income": 155000,
+        "age": 57,
+        "churn_chance": 87
+    },
+    "client_27": {
+        "postcode": "ST9",
+        "tenure": 2,
+        "income": 68000,
+        "age": 56,
+        "churn_chance": 94
+    },
+    "client_28": {
+        "postcode": "RG17",
+        "tenure": 3,
+        "income": 95000,
+        "age": 69,
+        "churn_chance": 59
+    },
+    "client_29": {
+        "postcode": "M25",
+        "tenure": 3,
+        "income": 79000,
+        "age": 78,
+        "churn_chance": 85
+    },
+    "client_30": {
+        "postcode": "LA7",
+        "tenure": 6,
+        "income": 59000,
+        "age": 71,
+        "churn_chance": 4
+    },
+    "client_31": {
+        "postcode": "SO21",
+        "tenure": 2,
+        "income": 170000,
+        "age": 73,
+        "churn_chance": 74
+    },
+    "client_32": {
+        "postcode": "NR34",
+        "tenure": 0,
+        "income": 187000,
+        "age": 50,
+        "churn_chance": 16
+    },
+    "client_33": {
+        "postcode": "DE72",
+        "tenure": 2,
+        "income": 173000,
+        "age": 96,
+        "churn_chance": 28
+    },
+    "client_34": {
+        "postcode": "IV21",
+        "tenure": 6,
+        "income": 107000,
+        "age": 49,
+        "churn_chance": 76
+    },
+    "client_35": {
+        "postcode": "SL4",
+        "tenure": 0,
+        "income": 46000,
+        "age": 28,
+        "churn_chance": 55
+    },
+    "client_36": {
+        "postcode": "SK17",
+        "tenure": 2,
+        "income": 167000,
+        "age": 66,
+        "churn_chance": 51
+    },
+    "client_37": {
+        "postcode": "LL16",
+        "tenure": 2,
+        "income": 42000,
+        "age": 66,
+        "churn_chance": 0
+    },
+    "client_38": {
+        "postcode": "CA4",
+        "tenure": 4,
+        "income": 42000,
+        "age": 52,
+        "churn_chance": 24
+    },
+    "client_39": {
+        "postcode": "SA62",
+        "tenure": 5,
+        "income": 60000,
+        "age": 67,
+        "churn_chance": 91
+    },
+    "client_40": {
+        "postcode": "PH10",
+        "tenure": 0,
+        "income": 42000,
+        "age": 63,
+        "churn_chance": 51
+    },
+    "client_41": {
+        "postcode": "DG2",
+        "tenure": 2,
+        "income": 199000,
+        "age": 58,
+        "churn_chance": 7
+    },
+    "client_42": {
+        "postcode": "TD6",
+        "tenure": 7,
+        "income": 75000,
+        "age": 60,
+        "churn_chance": 36
+    },
+    "client_43": {
+        "postcode": "BD23",
+        "tenure": 3,
+        "income": 177000,
+        "age": 42,
+        "churn_chance": 42
+    },
+    "client_44": {
+        "postcode": "SK17",
+        "tenure": 8,
+        "income": 33000,
+        "age": 88,
+        "churn_chance": 60
+    },
+    "client_45": {
+        "postcode": "ST18",
+        "tenure": 3,
+        "income": 87000,
+        "age": 67,
+        "churn_chance": 95
+    },
+    "client_46": {
+        "postcode": "KA26",
+        "tenure": 2,
+        "income": 97000,
+        "age": 84,
+        "churn_chance": 86
+    },
+    "client_47": {
+        "postcode": "IV4",
+        "tenure": 3,
+        "income": 134000,
+        "age": 65,
+        "churn_chance": 91
+    },
+    "client_48": {
+        "postcode": "LE67",
+        "tenure": 2,
+        "income": 63000,
+        "age": 56,
+        "churn_chance": 69
+    },
+    "client_49": {
+        "postcode": "NP7",
+        "tenure": 2,
+        "income": 81000,
+        "age": 19,
+        "churn_chance": 79
+    },
+    "client_50": {
+        "postcode": "IV49",
+        "tenure": 7,
+        "income": 89000,
+        "age": 43,
+        "churn_chance": 78
+    },
+    "client_51": {
+        "postcode": "IM4",
+        "tenure": 1,
+        "income": 199000,
+        "age": 33,
+        "churn_chance": 89
+    },
+    "client_52": {
+        "postcode": "SP2",
+        "tenure": 6,
+        "income": 149000,
+        "age": 98,
+        "churn_chance": 25
+    },
+    "client_53": {
+        "postcode": "KA27",
+        "tenure": 1,
+        "income": 165000,
+        "age": 93,
+        "churn_chance": 65
+    },
+    "client_54": {
+        "postcode": "DL12",
+        "tenure": 5,
+        "income": 198000,
+        "age": 57,
+        "churn_chance": 55
+    },
+    "client_55": {
+        "postcode": "AB31",
+        "tenure": 5,
+        "income": 109000,
+        "age": 28,
+        "churn_chance": 46
+    },
+    "client_56": {
+        "postcode": "HR8",
+        "tenure": 8,
+        "income": 75000,
+        "age": 45,
+        "churn_chance": 76
+    },
+    "client_57": {
+        "postcode": "PA28",
+        "tenure": 6,
+        "income": 55000,
+        "age": 33,
+        "churn_chance": 16
+    },
+    "client_58": {
+        "postcode": "AB53",
+        "tenure": 8,
+        "income": 90000,
+        "age": 59,
+        "churn_chance": 83
+    },
+    "client_59": {
+        "postcode": "LS26",
+        "tenure": 1,
+        "income": 131000,
+        "age": 86,
+        "churn_chance": 28
+    },
+    "client_60": {
+        "postcode": "EH23",
+        "tenure": 5,
+        "income": 141000,
+        "age": 99,
+        "churn_chance": 31
+    },
+    "client_61": {
+        "postcode": "SY22",
+        "tenure": 3,
+        "income": 86000,
+        "age": 31,
+        "churn_chance": 0
+    },
+    "client_62": {
+        "postcode": "OX14",
+        "tenure": 4,
+        "income": 71000,
+        "age": 79,
+        "churn_chance": 8
+    },
+    "client_63": {
+        "postcode": "HR9",
+        "tenure": 3,
+        "income": 184000,
+        "age": 78,
+        "churn_chance": 23
+    },
+    "client_64": {
+        "postcode": "EX15",
+        "tenure": 5,
+        "income": 40000,
+        "age": 71,
+        "churn_chance": 21
+    },
+    "client_65": {
+        "postcode": "SG4",
+        "tenure": 3,
+        "income": 185000,
+        "age": 41,
+        "churn_chance": 84
+    },
+    "client_66": {
+        "postcode": "M6",
+        "tenure": 2,
+        "income": 59000,
+        "age": 72,
+        "churn_chance": 48
+    },
+    "client_67": {
+        "postcode": "ML11",
+        "tenure": 4,
+        "income": 101000,
+        "age": 48,
+        "churn_chance": 75
+    },
+    "client_68": {
+        "postcode": "NR34",
+        "tenure": 0,
+        "income": 84000,
+        "age": 55,
+        "churn_chance": 28
+    },
+    "client_69": {
+        "postcode": "CB22",
+        "tenure": 6,
+        "income": 97000,
+        "age": 95,
+        "churn_chance": 22
+    },
+    "client_70": {
+        "postcode": "EX32",
+        "tenure": 1,
+        "income": 121000,
+        "age": 23,
+        "churn_chance": 59
+    },
+    "client_71": {
+        "postcode": "SA34",
+        "tenure": 5,
+        "income": 124000,
+        "age": 58,
+        "churn_chance": 82
+    },
+    "client_72": {
+        "postcode": "SA12",
+        "tenure": 7,
+        "income": 163000,
+        "age": 85,
+        "churn_chance": 92
+    },
+    "client_73": {
+        "postcode": "PH23",
+        "tenure": 1,
+        "income": 87000,
+        "age": 81,
+        "churn_chance": 20
+    },
+    "client_74": {
+        "postcode": "CB8",
+        "tenure": 8,
+        "income": 36000,
+        "age": 73,
+        "churn_chance": 28
+    },
+    "client_75": {
+        "postcode": "DN10",
+        "tenure": 8,
+        "income": 12000,
+        "age": 99,
+        "churn_chance": 34
+    },
+    "client_76": {
+        "postcode": "TA7",
+        "tenure": 0,
+        "income": 112000,
+        "age": 42,
+        "churn_chance": 24
+    },
+    "client_77": {
+        "postcode": "ST15",
+        "tenure": 8,
+        "income": 87000,
+        "age": 27,
+        "churn_chance": 25
+    },
+    "client_78": {
+        "postcode": "TR26",
+        "tenure": 5,
+        "income": 164000,
+        "age": 21,
+        "churn_chance": 23
+    },
+    "client_79": {
+        "postcode": "SA67",
+        "tenure": 2,
+        "income": 1000,
+        "age": 84,
+        "churn_chance": 93
+    },
+    "client_80": {
+        "postcode": "TF9",
+        "tenure": 5,
+        "income": 167000,
+        "age": 65,
+        "churn_chance": 66
+    },
+    "client_81": {
+        "postcode": "TN20",
+        "tenure": 5,
+        "income": 164000,
+        "age": 69,
+        "churn_chance": 52
+    },
+    "client_82": {
+        "postcode": "DG2",
+        "tenure": 8,
+        "income": 61000,
+        "age": 29,
+        "churn_chance": 94
+    },
+    "client_83": {
+        "postcode": "HR2",
+        "tenure": 6,
+        "income": 150000,
+        "age": 92,
+        "churn_chance": 75
+    },
+    "client_84": {
+        "postcode": "ST7",
+        "tenure": 8,
+        "income": 161000,
+        "age": 79,
+        "churn_chance": 60
+    },
+    "client_85": {
+        "postcode": "DD8",
+        "tenure": 3,
+        "income": 81000,
+        "age": 33,
+        "churn_chance": 90
+    },
+    "client_86": {
+        "postcode": "YO13",
+        "tenure": 4,
+        "income": 34000,
+        "age": 94,
+        "churn_chance": 32
+    },
+    "client_87": {
+        "postcode": "ST5",
+        "tenure": 1,
+        "income": 159000,
+        "age": 40,
+        "churn_chance": 9
+    },
+    "client_88": {
+        "postcode": "GL18",
+        "tenure": 4,
+        "income": 134000,
+        "age": 40,
+        "churn_chance": 47
+    },
+    "client_89": {
+        "postcode": "CM15",
+        "tenure": 5,
+        "income": 105000,
+        "age": 87,
+        "churn_chance": 30
+    },
+    "client_90": {
+        "postcode": "MK44",
+        "tenure": 5,
+        "income": 110000,
+        "age": 67,
+        "churn_chance": 10
+    },
+    "client_91": {
+        "postcode": "FK19",
+        "tenure": 0,
+        "income": 6000,
+        "age": 80,
+        "churn_chance": 7
+    },
+    "client_92": {
+        "postcode": "PH33",
+        "tenure": 8,
+        "income": 27000,
+        "age": 43,
+        "churn_chance": 40
+    },
+    "client_93": {
+        "postcode": "SA61",
+        "tenure": 2,
+        "income": 157000,
+        "age": 32,
+        "churn_chance": 7
+    },
+    "client_94": {
+        "postcode": "AB31",
+        "tenure": 6,
+        "income": 49000,
+        "age": 94,
+        "churn_chance": 52
+    },
+    "client_95": {
+        "postcode": "PE31",
+        "tenure": 0,
+        "income": 133000,
+        "age": 76,
+        "churn_chance": 72
+    },
+    "client_96": {
+        "postcode": "PL8",
+        "tenure": 2,
+        "income": 125000,
+        "age": 88,
+        "churn_chance": 68
+    },
+    "client_97": {
+        "postcode": "YO30",
+        "tenure": 3,
+        "income": 105000,
+        "age": 39,
+        "churn_chance": 75
+    },
+    "client_98": {
+        "postcode": "G77",
+        "tenure": 2,
+        "income": 61000,
+        "age": 62,
+        "churn_chance": 8
+    },
+    "client_99": {
+        "postcode": "AB21",
+        "tenure": 3,
+        "income": 109000,
+        "age": 68,
+        "churn_chance": 86
+    }
 }

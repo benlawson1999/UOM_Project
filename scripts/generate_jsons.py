@@ -93,7 +93,7 @@ def create_orders(n: int):
             "recipes": list(
                 np.random.choice(
                     list(recipes_json.keys()),
-                    np.random.randint(1, len(recipes_json) + 1),
+                    1,
                 )
             ),
             "product": [
@@ -104,12 +104,12 @@ def create_orders(n: int):
     return orders_json
 
 
-client_json = create_clients(100)
+client_json = create_clients(1)
 
 with open("./automatic_data/config_clients.json", "w") as outfile:
     json.dump(client_json, outfile, indent=4)
 
-factories_json = create_factories(n=1000, ingredient_list=ingredients)
+factories_json = create_factories(n=2, ingredient_list=ingredients)
 
 with open("./automatic_data/config_factories.json", "w") as outfile:
     json.dump(factories_json, outfile, indent=4)
@@ -119,12 +119,12 @@ skus_json = create_skus(ingredients)
 with open("./automatic_data/config_skus.json", "w") as outfile:
     json.dump(skus_json, outfile, indent=4)
 
-recipes_json = create_recipes(200)
+recipes_json = create_recipes(1)
 
 with open("./automatic_data/config_recipes.json", "w") as outfile:
     json.dump(recipes_json, outfile, indent=4)
 
-orders_json = create_orders(10000)
+orders_json = create_orders(1)
 
 with open("./automatic_data/config_orders.json", "w") as outfile:
     json.dump(orders_json, outfile, indent=4)

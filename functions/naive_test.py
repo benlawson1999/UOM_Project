@@ -18,7 +18,7 @@ def generate_results(results_tuple: dict):
     print(f"Percentage of Orders Fulfilled {results_tuple[3]}")
 
 
-def generate_solutions(orders_dict: dict, algorithm: str, client_dict: dict):
+def generate_solutions(orders_dict: dict, algorithm: str, client_dict: dict, sku_dict: dict):
     algorithm = algorithm.lower()
     if algorithm not in ["naive", "max", "min"]:
         raise ValueError("Please only select one of naive, max or min as the algorithm")
@@ -54,7 +54,7 @@ def generate_solutions(orders_dict: dict, algorithm: str, client_dict: dict):
             if demand[factory.factory_id].get(item) is None:
                 demand[factory.factory_id][item] = 0
             results[factory.factory_id] = wmape(
-                demand[factory.factory_id], factory.factory_inventory
+                demand[factory.factory_id], factory.factory_inventory, sku_dict
             )
         mean_wmape = sum(results.values()) / len(results)
         results_tuple = tuple([mean_wmape, demand, results, fulfilled_percent])
@@ -63,5 +63,5 @@ def generate_solutions(orders_dict: dict, algorithm: str, client_dict: dict):
 
 
 if __name__ == "__main__":
-    results = generate_solutions(Orders, "naive", Clients)
+    results = generate_solutions(Orders, "naive", Clients, SKUs)
     generate_results(results)

@@ -7,7 +7,7 @@ import time
 
 
 def neighbour_search(
-    orders_dict: dict, algorithm: str, client_dict: dict, time_limit=60
+    orders_dict: dict, algorithm: str, client_dict: dict, sku_dict: dict, time_limit=60, directed = True
 ):
 
     algorithm = algorithm.lower()
@@ -25,12 +25,15 @@ def neighbour_search(
                 best_order,
             )  # if 5 iterations go by without improvement, return current best
         if len(orders_dict) < 2:
-            return generate_solutions(orders_dict, algorithm, client_dict), best_order
+            return generate_solutions(orders_dict, algorithm, client_dict, sku_dict), best_order
         else:
             distance_dict = {}
-            for order in Orders_dict:
-                distance_dict[order] = Orders_dict[order].difference_distance
-            orders_rank = dict(sorted(distance_dict.items(), key=lambda item: item[1]))
+            if directed == True:
+                for order in Orders_dict:
+                    distance_dict[order] = orders_dict[order].difference_distance
+                orders_rank = dict(sorted(distance_dict.items(), key=lambda item: item[1]))
+            else:
+                orders_rank = orders_dict
 
             n = len(orders_dict) / 4
 
@@ -40,7 +43,7 @@ def neighbour_search(
             orders_head.extend(orders_tail)
             new_orders = dict(orders_head)
 
-        results = generate_solutions(new_orders, algorithm, client_dict)
+        results = generate_solutions(new_orders, algorithm, client_dict, sku_dict)
         if results[0] < best[0]:
             best = results
             best_order = list(new_orders.keys())

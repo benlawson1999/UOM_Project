@@ -7,7 +7,7 @@ import numpy as np
 class Order:
     __slots__ = [
         "order_id",
-        "client_id",
+        "postcode",
         "recipes",
         "product",
         "factory_id",
@@ -16,6 +16,7 @@ class Order:
         "optimal_distance",
         "factory_distance",
         "difference_distance",
+        "client_id"
     ]
 
     def __init__(self, order_id: int, **kwargs):
@@ -46,7 +47,14 @@ class Order:
             else:
                 order_total[i] = 1
         self.combined = order_total
-
+    def optimal_distance_calc(self, factories_dict: dict):
+        all_distances = np.array([])
+        for factory in factories_dict.values():
+            all_distances = np.append(
+                all_distances,
+                (factory.consumer_distance(self.postcode)),
+            )
+        self.optimal_distance = np.min(all_distances)
     def optimal_distance_setter(self, client_dict):
         self.optimal_distance = client_dict[self.client_id].optimal_distance
 

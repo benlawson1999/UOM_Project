@@ -1,5 +1,5 @@
 class Recipe:
-    __slots__ = ["recipe_id", "ingredients", "quantities", "complete"]
+    __slots__ = ["recipe_id", "ingredients", "quantity", "complete","quantities"]
 
     def __init__(self, **kwargs):
         for key, value in kwargs.items():

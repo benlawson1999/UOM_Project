@@ -1,22 +1,19 @@
 class SKU:
     __slots__ = [
-        "type_id",
+        "sku_id",
         "name",
         "unit_cost",
-        "holding_cost",
         "temp_requirements",
         "recipe_percent",
-        "child_id",
-        "expiry",
-        "target_level",
+        "type_id",
+        "holding_cost",
+        "target_level"
     ]
     # a given SKU, broad family
 
-    def __init__(self, type_id: int, **kwargs):
-        self.type_id = type_id  # ID for the type of ingredient ie Apple etc
+    def __init__(self, **kwargs):
+
         self.recipe_percent = None  # number of recipes containing the SKU
-        self.child_id = None
-        self.expiry = None
         for key, value in kwargs.items():
             setattr(self, key, value)
 

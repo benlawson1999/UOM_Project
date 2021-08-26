@@ -10,10 +10,12 @@ gb_pc = pgeocode.GeoDistance("GB")
 class Factory:
     __slots__ = [
         "factory_id",
-        "cost_weight",
+        "recipes",
         "postcode",
         "factory_inventory",
         "eligible",
+        "batch",
+        "cost_weight"
     ]
 
     # class of factory

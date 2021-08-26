@@ -39,7 +39,7 @@ def create_factories(n: int, ingredient_list: list):
     inventory = {}
     inventory_size = np.random.choice([0, "1"], 100000, p=[0, 1])
     mask = inventory_size == "1"
-    inventory_size[mask] = np.random.choice(1000, len(inventory_size[mask]))
+    inventory_size[mask] = np.random.choice(100, len(inventory_size[mask]))
     for i in range(n):
         ingredients = {}
         ingredient_inv = {}
@@ -80,7 +80,7 @@ def create_recipes(n: int):
             "ingredients": list(
                 np.random.choice(list(skus_json.keys()), p, replace=False)[0:p]
             ),
-            "quantities": (np.random.choice(range(1, 5), p)[0:p].tolist()),
+            "quantity": (np.random.choice(range(1, 5), p)[0:p].tolist()),
         }
     return recipes_json
 

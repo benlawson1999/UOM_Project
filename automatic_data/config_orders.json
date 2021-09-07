@@ -1,12 +1,12 @@
 {
     "order_0": {
-        "client_id": "client_0",
         "recipes": [
             "recipe_0"
         ],
         "product": [
-            "Banana"
+            "Beef"
         ],
-        "factory_id": null
+        "factory_id": null,
+        "postcode": "DD9"
     }
 }

@@ -1,18 +1,28 @@
 {
     "recipe_0": {
         "ingredients": [
-            "Beef",
-            "Carrot",
-            "Mushrooms",
             "Apple",
-            "Banana"
+            "Mushrooms",
+            "Pear",
+            "Garlic",
+            "Banana",
+            "Potatoes",
+            "Carrot",
+            "Chicken",
+            "Beef",
+            "Cabbage"
         ],
-        "quantities": [
-            1,
+        "quantity": [
             4,
+            2,
+            3,
+            2,
             3,
             3,
-            4
+            4,
+            2,
+            4,
+            2
         ]
     }
 }

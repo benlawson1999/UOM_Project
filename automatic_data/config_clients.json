@@ -1,9 +1,0 @@
-{
-    "client_0": {
-        "postcode": "TN17",
-        "tenure": 6,
-        "income": 36000,
-        "age": 74,
-        "churn_chance": 94
-    }
-}

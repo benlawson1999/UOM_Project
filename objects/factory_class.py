@@ -15,7 +15,6 @@ class Factory:
         "factory_inventory",
         "eligible",
         "batch",
-        "cost_weight"
     ]
 
     # class of factory

@@ -1,36 +1,34 @@
 {
     "factory_0": {
-        "postcode": "PE13",
-        "cost_weight": 1.0,
+        "postcode": "SY5",
         "factory_inventory": {
-            "Apple": 85,
-            "Banana": 26,
-            "Chicken": 43,
-            "Beef": 43,
-            "Pork": 48,
-            "Garlic": 40,
-            "Mushrooms": 59,
-            "Pear": 59,
-            "Potatoes": 27,
-            "Cabbage": 53,
-            "Carrot": 63
+            "Apple": 92,
+            "Banana": 44,
+            "Chicken": 99,
+            "Beef": 31,
+            "Pork": 45,
+            "Garlic": 90,
+            "Mushrooms": 43,
+            "Pear": 27,
+            "Potatoes": 38,
+            "Cabbage": 20,
+            "Carrot": 34
         }
     },
     "factory_1": {
-        "postcode": "SS3",
-        "cost_weight": 0.7,
+        "postcode": "PL15",
         "factory_inventory": {
-            "Apple": 23,
-            "Banana": 52,
-            "Chicken": 78,
-            "Beef": 73,
-            "Pork": 84,
-            "Garlic": 32,
-            "Mushrooms": 92,
-            "Pear": 17,
-            "Potatoes": 75,
-            "Cabbage": 35,
-            "Carrot": 35
+            "Apple": 87,
+            "Banana": 10,
+            "Chicken": 97,
+            "Beef": 8,
+            "Pork": 30,
+            "Garlic": 45,
+            "Mushrooms": 68,
+            "Pear": 90,
+            "Potatoes": 62,
+            "Cabbage": 23,
+            "Carrot": 54
         }
     }
 }

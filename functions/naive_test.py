@@ -1,3 +1,8 @@
+"""Define the solution and returns results, also can be repeated with random shuffling.
+
+generate_results: Generates a plot and summary statistics for a run of an algorithm.
+generate_solutions: Generate a solution for the given algorithm.
+experiment_wrapper: Allows repetition of a given algorithm N times and returns a plot."""
 import sys
 from pathlib import Path
 
@@ -14,6 +19,7 @@ import math
 
 
 def generate_results(results_tuple: dict, algorithm: str, sort=True):
+    """Generates a plot and summary statistics for a run of an algorithm."""
     results_per_method = {}
     if sort == True:
         working_dict = dict(sorted(results_tuple[2].items(), key=lambda item: item[1]))
@@ -34,6 +40,7 @@ def generate_results(results_tuple: dict, algorithm: str, sort=True):
 def generate_solutions(
     orders_dict: dict, algorithm: str, factories_dict: dict, sku_dict: dict
 ):
+    """Generate a solution for the given algorithm."""
     algorithm = algorithm.lower()
     if algorithm not in ["naive", "max", "min"]:
         raise ValueError("Please only select one of naive, max or min as the algorithm")
@@ -88,6 +95,7 @@ def experiment_wrapper(
     iterations=100,
     plot=True,
 ):
+    """Allows repetition of a given algorithm N times and returns a plot"""
     experiment_dict = {}
     if type(time_sol) == type(iterations):
         raise TypeError(

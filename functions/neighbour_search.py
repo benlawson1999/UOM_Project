@@ -34,7 +34,7 @@ def neighbour_search(
     best_order = list(orders_dict.keys())
     best = generate_solutions(orders_dict, algorithm, factories_dict, sku_dict)
     while time.time() < timeout_start + time_limit:
-        if it > interation_limit:
+        if it > iteration_limit:
             return (
                 best,
                 best_order,

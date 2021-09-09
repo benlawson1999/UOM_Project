@@ -199,6 +199,3 @@ def main(
         wmape_dict[factory] = solver.Value(wmape[num])
 
     return (solver.ObjectiveValue(), wmape_dict)
-
-
-main(Factories, Orders, SKUs, Recipes)

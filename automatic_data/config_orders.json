@@ -4,10 +4,10 @@
             "recipe_0"
         ],
         "product": [
-            "Carrot"
+            0
         ],
         "factory_id": null,
-        "postcode": "HP27",
+        "postcode": "LN10",
         "batch": "Batch_A"
     },
     "order_1": {
@@ -15,10 +15,10 @@
             "recipe_0"
         ],
         "product": [
-            "Pork"
+            3
         ],
         "factory_id": null,
-        "postcode": "LA14",
+        "postcode": "EX39",
         "batch": "Batch_A"
     },
     "order_2": {
@@ -26,10 +26,10 @@
             "recipe_0"
         ],
         "product": [
-            "Pear"
+            2
         ],
         "factory_id": null,
-        "postcode": "TR20",
+        "postcode": "NE46",
         "batch": "Batch_A"
     }
 }

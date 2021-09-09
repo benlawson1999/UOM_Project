@@ -1,3 +1,12 @@
+"""Module to run directed neighbourhood search for the 3 random search algorithms.
+
+neighbour_search: Runs the chosen algorithm until either the system times out,
+or x runs are reached without improvement.
+"""
+import sys
+from pathlib import Path
+
+sys.path.append(str(Path("..").absolute().parent))
 from scripts.generate_objects import Factories, Orders, SKUs, Recipes
 from functions.WMAPE import wmape
 from functions.naive_test import generate_solutions, generate_results
@@ -12,7 +21,9 @@ def neighbour_search(
     factories_dict: dict,
     sku_dict: dict,
     time_limit=600000,
+    iteration_limit=4,
 ):
+    """Runs the chosen algoirthm until one of the two break criteria are met."""
 
     algorithm = algorithm.lower()
     if algorithm not in ["naive", "max", "min"]:
@@ -23,7 +34,7 @@ def neighbour_search(
     best_order = list(orders_dict.keys())
     best = generate_solutions(orders_dict, algorithm, factories_dict, sku_dict)
     while time.time() < timeout_start + time_limit:
-        if it > 4:
+        if it > interation_limit:
             return (
                 best,
                 best_order,
@@ -38,7 +49,7 @@ def neighbour_search(
 
         for order in orders_dict:
             distance_dict[order] = orders_dict[order].calculate_difference(
-                factories_dict[orders_dict["1"].batch]
+                factories_dict
             )
         orders_rank = dict(sorted(distance_dict.items(), key=lambda item: item[1]))
 
@@ -60,16 +71,5 @@ def neighbour_search(
             it = 0  # iteration count resets when improvement found
         else:
             it += int(1)
+
     return best, best_order
-
-
-if __name__ == "__main__":
-    results_naive, order_naive = neighbour_search(
-        Orders, "naive", Factories, SKUs, time_limit=19709
-    )
-    results_max, order_max = neighbour_search(
-        Orders, "max", Factories, SKUs, time_limit=19709
-    )
-    results_min, order_min = neighbour_search(
-        Orders, "min", Factories, SKUs, time_limit=19709
-    )

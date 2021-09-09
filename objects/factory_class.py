@@ -1,13 +1,14 @@
 import pgeocode
 from collections import Counter
-
 import random
-
-
 gb_pc = pgeocode.GeoDistance("GB")
 
 
 class Factory:
+    """Class to define a factory.
+
+    Box_Check: see if the factory is elgigible for a given order.
+    consumer_distance: calcuates the Haversine distance between an order and the factory"""
     __slots__ = [
         "factory_id",
         "recipes",
@@ -25,7 +26,7 @@ class Factory:
         self.eligible = None
 
     def Box_check(self, box_in, demand):
-        # function to check if a factory can complete an order
+        """function to check if a factory can complete an order"""
         check = all(item in self.factory_inventory.keys() for item in (box_in.keys()))
         # if this is true, see if they can do the order
         fact_box = {}
@@ -57,6 +58,6 @@ class Factory:
         return self.eligible
 
     def consumer_distance(self, order_location):
-        # Function to find the Haversine distance between the factory and the order
+        """Function to find the Haversine distance between the factory and the order"""
         fact_dist = gb_pc.query_postal_code(self.postcode, order_location)
         return fact_dist

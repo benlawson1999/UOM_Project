@@ -1,5 +1,6 @@
 import json
 import sys
+
 from pathlib import Path
 from objects.factory_class import Factory
 from objects.order_class import Order
@@ -21,7 +22,7 @@ def generate_factories(data: dict):
     return factories
 
 
-def generate_orders(data: dict, factories_dict :dict):
+def generate_orders(data: dict, factories_dict: dict):
     """Code to generate orders"""
     orders = {}
     for key, value in data.items():
@@ -51,6 +52,7 @@ Factories = generate_factories(
 )
 
 Orders = generate_orders(
-    json.load(open("./automatic_data/config_orders.json")),Factories)
+    json.load(open("./automatic_data/config_orders.json")), Factories
+)
 SKUs = generate_skus(json.load(open("./automatic_data/config_skus.json")))
 Recipes = generate_recipes(json.load(open("./automatic_data/config_recipes.json")))

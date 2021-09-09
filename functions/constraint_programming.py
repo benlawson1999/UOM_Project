@@ -1,9 +1,15 @@
+"""Module to run constraint programming for a set of orders, using Weighted MAPE
+as the objective function.
+
+main: Calculate the Mean Weighted Mape for a set of Orders."""
+import sys
+from pathlib import Path
+
+sys.path.append(str(Path("..").absolute().parent))
 from ortools.sat.python import cp_model
-from real_data.load_objects import Factories, Orders_A, SKUs, Recipes
+from scripts.generate_objects import Factories, Orders, SKUs, Recipes
 import time
-from itertools import islice
-from itertools import chain
-import copy
+from itertools import islice, chain
 
 
 def main(
@@ -15,16 +21,16 @@ def main(
     exact=True,
     scaling=1,
 ):
-    scaling = scaling
+    """Calculate the Mean Weighted Mape for a set of Orders."""
+
     model = cp_model.CpModel()
-    factory_dict = factory_dict[order_dict["1"].batch]
     # initalise the model
     # [START VARIABLES]
-
     sum_actual = {}
     all_orders = {}
     error_abs = {}
     n = len(factory_dict)
+    mape_limit = n * 100
     for count, item in enumerate(order_dict.values()):
 
         all_orders[count] = item
@@ -61,11 +67,14 @@ def main(
 
         for count_sku, sku in all_skus.items():
             prefix = "%s_%s_" % (factory.factory_id, sku.sku_id)
-            if factory.factory_inventory.get(sku.sku_id) is None:
-                factory_quantity[(count_factory, count_sku)] = 0
-            else:
+            factory_quantity[(count_factory, count_sku)] = 0
+            if factory.factory_inventory.get(sku.name) is None:
                 factory_quantity[(count_factory, count_sku)] = (
-                    factory.factory_inventory[sku.sku_id] * sku.unit_cost
+                    factory.factory_inventory[sku.name] * sku.unit_cost
+                )
+            else:
+                factory_quantity[(count_factory, count_sku)] += (
+                    factory.factory_inventory[sku.name] * sku.unit_cost
                 )
 
             # creates a measure of the current quantity in the factories
@@ -91,11 +100,13 @@ def main(
                         round(items[(count_order, count_sku)])
                         * fulfilled_by[(count_order, count_factory)]
                     )
+                    #create factory demand
                 else:
                     factory_demand[(count_factory, count_sku)] += (
                         round(items[(count_order, count_sku)])
                         * fulfilled_by[(count_order, count_factory)]
                     )
+                    #adds to factory demand
     for count_factory, factory in all_factories.items():
         error_abs[count_factory] = sum(
             [
@@ -104,12 +115,15 @@ def main(
                 for count_sku, sku in all_skus.items()
             ]
         )
+        #calcuate the numerator for weighted mape
         sum_actual[count_factory] = sum(
             [
                 factory_quantity[(count_factory, count_sku)]
                 for count_sku, sku in all_skus.items()
             ]
         )
+        print(sum_actual)
+        # calculates the errors for the quantity and the demand
 
         # [END VARIABLES]
 
@@ -142,18 +156,22 @@ def main(
             model.Add(factory_demand[(factory, sku)] <= factory_quantity[factory, sku])
             # ensure the demand does not outweigh the supply for a factory
         # [END CONSTRAINTS]
-
     # [START OBJECTIVE]
-    obj_var = model.NewIntVar(0, 500, "Sum WMAPE")
+    obj_var = model.NewIntVar(0, mape_limit, "Sum WMAPE")
     numerator = {}
     denom = {}
     wmape = {}
 
     for count_factory, factory in all_factories.items():
         numerator[count_factory] = model.NewIntVar(0, 5000000000000000000, "sum_all")
+
         denom[count_factory] = model.NewIntVar(0, 5000000000000000000, "sum_quantity")
+
         wmape[count_factory] = model.NewIntVar(0, 100, "WMAPE")
+
+        # adds new varibles to calcuate the weighted mape
         model.Add(numerator[count_factory] == error_abs[count_factory] * 100)
+
         model.Add(denom[count_factory] == sum_actual[count_factory])
         model.AddDivisionEquality(
             wmape[count_factory], numerator[count_factory], denom[count_factory]
@@ -168,8 +186,10 @@ def main(
     solver = cp_model.CpSolver()
     if time_limit == True:
         solver.parameters.max_time_in_seconds = 20000
+    # adds an optional time limit
 
     status = solver.Solve(model)
+    # solves the model
 
     print("Solve status: %s" % solver.StatusName(status))
     print("Mean_Wmape: %i" % (solver.ObjectiveValue() / len(all_factories)))
@@ -181,23 +201,4 @@ def main(
     return (solver.ObjectiveValue(), wmape_dict)
 
 
-if __name__ == "__main__":
-    uniqueKeyList = set(list(SKUs.keys()))
-    matching = [s for s in uniqueKeyList if "RC-" in s]
-    matching_2 = [s for s in matching if "-RC-" in s]
-    for el in matching:
-        if el in matching_2:
-            matching.remove(el)
-    for card in matching:
-        del SKUs[card]
-    for recipe in Recipes.values():
-        for card in matching:
-            recipe.complete.pop(card, None)
-
-    time_start = time.time()
-    test, prin = main(
-        Factories, Orders_A, SKUs, Recipes, time_limit=True, exact=False, scaling=1000
-    )
-    time_end = time.time()
-    total = time_end - time_start
-    print(prin)
+main(Factories, Orders, SKUs, Recipes)

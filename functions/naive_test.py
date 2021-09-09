@@ -1,3 +1,7 @@
+import sys
+from pathlib import Path
+
+sys.path.append(str(Path("..").absolute().parent))
 from scripts.generate_objects import Factories, Orders, SKUs, Recipes
 from functions.WMAPE import wmape
 import matplotlib.pyplot as plt
@@ -6,20 +10,23 @@ from itertools import islice
 import random
 import time
 import pickle
+import math
 
 
-def generate_results(results_tuple: dict, algorithm: str):
+def generate_results(results_tuple: dict, algorithm: str, sort=True):
     results_per_method = {}
-    sorted_dict = dict(sorted(results_tuple[2].items(), key=lambda item: item[1]))
+    if sort == True:
+        working_dict = dict(sorted(results_tuple[2].items(), key=lambda item: item[1]))
+    else:
+        working_dict = results_tuple[2]
     mean_wmape = results_tuple[0]
     std_dev = np.std(list(results_tuple[2].values()))
     results_per_method = {"Mean": mean_wmape, "Standard deviation": std_dev}
-    sorted_dict = dict(sorted(results_tuple[2].items(), key=lambda item: item[1]))
-    plt.bar(sorted_dict.keys(), sorted_dict.values(), 1, color="red")
-    plt.title("Weighted MAPE for Warehouses Over One Run for Algorithm "+algorithm)
+    plt.bar(working_dict.keys(), working_dict.values(), 1, color="red")
+    plt.title("Weighted MAPE for Warehouses Over One Run for Algorithm " + algorithm)
     print(f"Factory Demand: {results_tuple[1]}")
     print(f"Mean WMAPE: {mean_wmape}")
-    print(f"Factory-wise WMAPE: {sorted_dict}")
+    print(f"Factory-wise WMAPE: {working_dict}")
     print(f"Percentage of Orders Fulfilled {results_tuple[3]}")
     plt.savefig("./images/" + algorithm + "_one_run.png", bbox_inches="tight")
 
@@ -72,7 +79,6 @@ def generate_solutions(
     return results_tuple
 
 
-
 def experiment_wrapper(
     orders_dict: dict,
     algorithm: str,
@@ -110,7 +116,9 @@ def experiment_wrapper(
         if plot == True:
             plt.bar(range(iterations), min_list, 1, color="red")
             plt.title(
-                "Weighted MAPE for the " +algorithm+" Algorithm Across "
+                "Weighted MAPE for the "
+                + algorithm
+                + " Algorithm Across "
                 + str(iterations)
                 + " Iterations"
             )

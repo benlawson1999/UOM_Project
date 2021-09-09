@@ -1,10 +1,21 @@
-"""test"""
+
 import random
 import operator
 import numpy as np
 
 
 class Order:
+    """Object containing all the information about an order.
+
+    order_list: gives all the ingredients needed in the order.
+    optimal_distance_calc: Calculate the lowest distance between an order the factories.
+    calculate_difference: Calcuate the difference between the optimal and current distance.
+    eligibility_check: Returns all eligible factories for this order.
+    optimal_factory_naive: Uses random choice as the criteria for allocation to a factory.
+    optimal_factory_ranking_max: Uses the maximum of included SKUs as the criteria for allocation to a factory.
+    optimal_factory_ranking_min: Uses the minimum of included SKUs as the criteria for allocation to a factory.
+    """
+
     __slots__ = [
         "order_id",
         "postcode",
@@ -27,7 +38,8 @@ class Order:
         for key, value in kwargs.items():
             setattr(self, key, value)
 
-    def order_list(self, recipe_dict):  # gives all the ingredients needed in the order
+    def order_list(self, recipe_dict):
+        """Gives all the ingredients needed in the order."""
         order_total = {}
         for i in self.recipes:  # list of ids
 
@@ -49,6 +61,7 @@ class Order:
         self.combined = order_total
 
     def optimal_distance_calc(self, factories_dict: dict):
+        """Calculate the lowest distance between an order the factories."""
         all_distances = np.array([])
         for factory in factories_dict.values():
             all_distances = np.append(
@@ -58,6 +71,7 @@ class Order:
         self.optimal_distance = np.min(all_distances)
 
     def calculate_difference(self, factories_dict: dict):
+        """Calcuate the difference between the optimal and current distance."""
         if self.factory_id == None:
             return 100000
         else:
@@ -68,7 +82,7 @@ class Order:
         return self.difference_distance
 
     def eligibility_check(self, factories_dict: dict, demand: dict):
-
+        """Returns all eligible factories for this order."""
         eligible_list = []
         for factories in factories_dict.values():
             if factories.Box_check(self.combined, demand) == True:
@@ -83,6 +97,7 @@ class Order:
         factories_dict: dict,
         demand: dict,
     ):
+       """Uses random choice as the criteria for allocation to a factory."""
 
         eligible_factories = self.eligibility_check(factories_dict, demand)
 
@@ -105,6 +120,7 @@ class Order:
         factories_dict: dict,
         demand: dict,
     ):
+        """Uses the maximum of included SKUs as the criteria for allocation to a factory."""
         eligible_factories = self.eligibility_check(factories_dict, demand)
         factories_quantity = {}
         if not eligible_factories:
@@ -132,6 +148,7 @@ class Order:
         factories_dict: dict,
         demand: dict,
     ):
+        """Uses the minimum of included SKUs as the criteria for allocation to a factory."""
         eligible_factories = self.eligibility_check(factories_dict, demand)
         factories_quantity = {}
         if not eligible_factories:

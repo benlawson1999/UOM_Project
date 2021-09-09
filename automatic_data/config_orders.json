@@ -4,9 +4,32 @@
             "recipe_0"
         ],
         "product": [
-            "Beef"
+            "Carrot"
         ],
         "factory_id": null,
-        "postcode": "DD9"
+        "postcode": "HP27",
+        "batch": "Batch_A"
+    },
+    "order_1": {
+        "recipes": [
+            "recipe_0"
+        ],
+        "product": [
+            "Pork"
+        ],
+        "factory_id": null,
+        "postcode": "LA14",
+        "batch": "Batch_A"
+    },
+    "order_2": {
+        "recipes": [
+            "recipe_0"
+        ],
+        "product": [
+            "Pear"
+        ],
+        "factory_id": null,
+        "postcode": "TR20",
+        "batch": "Batch_A"
     }
 }

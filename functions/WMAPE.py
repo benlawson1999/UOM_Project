@@ -2,6 +2,7 @@ import numpy as np
 
 
 def wmape(actual: dict, target: dict, skus: dict):
+    """Calcualtes the weighted MAPE for a given warehouse"""
     sum_all = 0
     sum_actual = 0
 

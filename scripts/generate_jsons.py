@@ -1,3 +1,10 @@
+"""Functions to generate the JSONs used to generate objects.
+
+create_SKUs: generates N jsons for ingredients and return a list of N length.
+create_factories: generates N jsons with a random inventory of the ingredients.
+create_recipes: generates N random combinations of the ingredients. Edibility is not guaranteed!
+create_orders: generates N orders from a random UK postcode, with a random orders.
+"""
 import pgeocode
 import random
 import json
@@ -6,22 +13,20 @@ import numpy as np
 gb_pc = pgeocode.GeoDistance("GB")
 
 
-ingredients = [
-    "Apple",
-    "Banana",
-    "Chicken",
-    "Beef",
-    "Pork",
-    "Garlic",
-    "Mushrooms",
-    "Pear",
-    "Potatoes",
-    "Cabbage",
-    "Carrot",
-]
+def create_skus(n: int):
+    skus_json = {}
+
+    for i in range(n):
+        skus_json[i] = {
+            "sku_id": i,
+            "unit_cost": np.random.randint(0, 15),
+        }
+    ingredient_list = list(range(100))
+    return skus_json, ingredient_list
 
 
 def create_factories(n: int, ingredient_list: list):
+    """generates N jsons with a random inventory of the ingredients."""
     factories_json = {}
     inventory = {}
     inventory_size = np.random.choice([0, "1"], 100000, p=[0, 1])
@@ -43,17 +48,8 @@ def create_factories(n: int, ingredient_list: list):
     return factories_json
 
 
-def create_skus(ingredient_list: list):
-    skus_json = {}
-    for i in range(len(ingredient_list)):
-        skus_json[ingredient_list[i]] = {
-            "sku_id": i,
-            "unit_cost": np.random.randint(0, 15),
-        }
-    return skus_json
-
-
 def create_recipes(n: int):
+    """generates N random combinations of the ingredients."""
     recipes_json = {}
     for i in range(n):
         p = np.random.randint(1, len(skus_json))
@@ -67,6 +63,7 @@ def create_recipes(n: int):
 
 
 def create_orders(n: int):
+    """generates N orders from a random UK postcode, with a random orders."""
     orders_json = {}
     for i in range(n):
         orders_json["order_" + str(i)] = {
@@ -80,11 +77,16 @@ def create_orders(n: int):
                 (np.random.choice(list(skus_json.keys()), np.random.randint(1, 2))[0])
             ],
             "factory_id": None,
-            "postcode" : gb_pc._data["postal_code"][np.random.randint(0, 27429)],
-            "batch" = "Batch_A"
+            "postcode": gb_pc._data["postal_code"][np.random.randint(0, 27429)],
+            "batch": "Batch_A",
         }
     return orders_json
 
+
+skus_json, ingredients = create_skus(5)
+
+with open("./automatic_data/config_skus.json", "w") as outfile:
+    json.dump(skus_json, outfile, indent=4)
 
 factories_json = create_factories(n=2, ingredient_list=ingredients)
 
@@ -101,7 +103,7 @@ recipes_json = create_recipes(1)
 with open("./automatic_data/config_recipes.json", "w") as outfile:
     json.dump(recipes_json, outfile, indent=4)
 
-orders_json = create_orders(1)
+orders_json = create_orders(3)
 
 with open("./automatic_data/config_orders.json", "w") as outfile:
     json.dump(orders_json, outfile, indent=4)

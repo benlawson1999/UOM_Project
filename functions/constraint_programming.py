@@ -100,13 +100,13 @@ def main(
                         round(items[(count_order, count_sku)])
                         * fulfilled_by[(count_order, count_factory)]
                     )
-                    #create factory demand
+                    # create factory demand
                 else:
                     factory_demand[(count_factory, count_sku)] += (
                         round(items[(count_order, count_sku)])
                         * fulfilled_by[(count_order, count_factory)]
                     )
-                    #adds to factory demand
+                    # adds to factory demand
     for count_factory, factory in all_factories.items():
         error_abs[count_factory] = sum(
             [
@@ -115,7 +115,7 @@ def main(
                 for count_sku, sku in all_skus.items()
             ]
         )
-        #calcuate the numerator for weighted mape
+        # calcuate the numerator for weighted mape
         sum_actual[count_factory] = sum(
             [
                 factory_quantity[(count_factory, count_sku)]

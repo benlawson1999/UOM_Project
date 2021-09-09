@@ -1,21 +1,9 @@
-
 import random
 import operator
 import numpy as np
 
 
 class Order:
-    """Object containing all the information about an order.
-
-    order_list: gives all the ingredients needed in the order.
-    optimal_distance_calc: Calculate the lowest distance between an order the factories.
-    calculate_difference: Calcuate the difference between the optimal and current distance.
-    eligibility_check: Returns all eligible factories for this order.
-    optimal_factory_naive: Uses random choice as the criteria for allocation to a factory.
-    optimal_factory_ranking_max: Uses the maximum of included SKUs as the criteria for allocation to a factory.
-    optimal_factory_ranking_min: Uses the minimum of included SKUs as the criteria for allocation to a factory.
-    """
-
     __slots__ = [
         "order_id",
         "postcode",
@@ -29,6 +17,16 @@ class Order:
         "difference_distance",
         "batch",
     ]
+    """Object containing all the information about an order.
+
+    order_list: gives all the ingredients needed in the order.
+    optimal_distance_calc: Calculate the lowest distance between an order the factories.
+    calculate_difference: Calcuate the difference between the optimal and current distance.
+    eligibility_check: Returns all eligible factories for this order.
+    optimal_factory_naive: Uses random choice as the criteria for allocation to a factory.
+    optimal_factory_ranking_max: Uses the maximum of included SKUs as the criteria for allocation to a factory.
+    optimal_factory_ranking_min: Uses the minimum of included SKUs as the criteria for allocation to a factory.
+    """
 
     def __init__(self, order_id: int, **kwargs):
         self.order_id = order_id
@@ -97,10 +95,9 @@ class Order:
         factories_dict: dict,
         demand: dict,
     ):
-       """Uses random choice as the criteria for allocation to a factory."""
+        """Uses random choice as the criteria for allocation to a factory."""
 
         eligible_factories = self.eligibility_check(factories_dict, demand)
-
         if not eligible_factories:
             self.fulfilled = 0
             self.factory_id = None

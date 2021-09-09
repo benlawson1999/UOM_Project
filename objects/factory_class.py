@@ -1,6 +1,7 @@
 import pgeocode
 from collections import Counter
 import random
+
 gb_pc = pgeocode.GeoDistance("GB")
 
 
@@ -9,6 +10,7 @@ class Factory:
 
     Box_Check: see if the factory is elgigible for a given order.
     consumer_distance: calcuates the Haversine distance between an order and the factory"""
+
     __slots__ = [
         "factory_id",
         "recipes",

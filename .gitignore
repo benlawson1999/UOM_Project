@@ -1,3 +1,9 @@
 venv
 .DS_Store
 __pycache__
+real_data
+images
+.spyproject
+regression_test.py
+tests
+UK_Map_Data

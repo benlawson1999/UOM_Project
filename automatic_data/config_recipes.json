@@ -1,0 +1,26 @@
+{
+    "recipe_0": {
+        "ingredients": [
+            "Mushrooms",
+            "Chicken",
+            "Pear",
+            "Pork",
+            "Cabbage",
+            "Carrot",
+            "Beef",
+            "Apple",
+            "Banana"
+        ],
+        "quantity": [
+            2,
+            3,
+            3,
+            2,
+            2,
+            1,
+            1,
+            3,
+            3
+        ]
+    }
+}

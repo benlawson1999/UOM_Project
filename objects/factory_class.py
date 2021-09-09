@@ -1,65 +1,65 @@
-# import pgeocode  # may need to be installed at the copmmand line
+import pgeocode
 from collections import Counter
-
 import random
 
-# gb_pc = pgeocode.GeoDistance("GB")
+gb_pc = pgeocode.GeoDistance("GB")
 
 
 class Factory:
-    __slots__ = ["factory_id", "cost_weight", "location", "factory_inventory"]
+    """Class to define a factory.
+
+    Box_Check: see if the factory is elgigible for a given order.
+    consumer_distance: calcuates the Haversine distance between an order and the factory"""
+
+    __slots__ = [
+        "factory_id",
+        "recipes",
+        "postcode",
+        "factory_inventory",
+        "eligible",
+        "batch",
+    ]
 
     # class of factory
     def __init__(self, factory_id: int, **kwargs):
-        self.factory_id = (factory_id,)
+        self.factory_id = factory_id
         for key, value in kwargs.items():
             setattr(self, key, value)
+        self.eligible = None
 
-    def Box_check(self, box_in):
-        # function to check if a factory can complete an order
+    def Box_check(self, box_in, demand):
+        """function to check if a factory can complete an order"""
         check = all(item in self.factory_inventory.keys() for item in (box_in.keys()))
         # if this is true, see if they can do the order
+        fact_box = {}
         if check == True:
+            for ingredient in box_in:
+                if demand.get(self.factory_id) is None:
 
-            fact_box = {
-                ingred: (self.factory_inventory[ingred] - box_in[ingred])
-                for ingred in box_in
-            }
+                    demand[self.factory_id] = {}  # make a new entry
+                if demand[self.factory_id].get(ingredient) is None:
 
-            if all(value > 0 for value in fact_box.values()) == True:
-                eligible = True
+                    demand[self.factory_id][ingredient] = 0
+
+                fact_box[ingredient] = (
+                    self.factory_inventory[ingredient]
+                    - box_in[ingredient]
+                    - demand[self.factory_id][ingredient]
+                )
+
+            if all(value >= 0 for value in fact_box.values()) == True:
+
+                self.eligible = True
 
             else:
-                eligible = False
+                self.eligible = False
 
         else:
-            eligible = False
+            self.eligible = False
 
-        return eligible
+        return self.eligible
 
-    def Cons_dist(self, order):
-        # Function to find the Haversine distance between the factory and the order
-        fact_dist = gb_pc.query_postal_code(self.location, order.location)
+    def consumer_distance(self, order_location):
+        """Function to find the Haversine distance between the factory and the order"""
+        fact_dist = gb_pc.query_postal_code(self.postcode, order_location)
         return fact_dist
-
-    def SKU_holding(self, inventory):
-        # find all the unique items in the inventory and their quantites
-        holding_total = {}
-
-        for key in inventory:
-
-            if key in holding_total:
-                # add the value to the current total in the whole factory
-                holding_total[key] += inventory[key]
-            else:
-                # create a new entry if theres not currently a entry
-                holding_total[key] = inventory[key]
-        self.fact_inv = holding_total
-        self.SKU_types = holding_total.keys()
-
-
-def Factory_Dict(fact_list):
-    fact_dict = {}
-    for i in fact_list:
-        fact_dict[eval(i + ".Factory_ID")] = eval(i)
-    return fact_dict

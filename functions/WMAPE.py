@@ -1,26 +1,24 @@
-import numpy as np
-
-
-def wmape(actual: dict, target: dict, skus: dict):
+def wmape(factory_sku_holding: dict, desired_sku_holding: dict, skus: dict):
     """Calcualtes the weighted MAPE for a given warehouse"""
     sum_all = 0
-    sum_actual = 0
+    sum_factory_sku_holding = 0
 
-    for item in actual:
-        if skus.get(item) is None:
+    for sku in factory_sku_holding:
+        if skus.get(sku) is None:
             weight = 0
-        # make a new entry
         else:
-            if target.get(item) is None:
-                weight = actual[item] * skus[item].unit_cost
+            if desired_sku_holding.get(sku) is None:
+                weight = factory_sku_holding[sku] * skus[sku].unit_cost
             else:
-                weight = (actual[item] - target[item]) * skus[item].unit_cost
+                weight = (factory_sku_holding[sku] - desired_sku_holding[sku]) * skus[
+                    sku
+                ].unit_cost
             sum_all += weight
-            sum_actual += actual[item] * skus[item].unit_cost
-    if sum_actual == 0:
+            sum_factory_sku_holding += factory_sku_holding[sku] * skus[sku].unit_cost
+    if sum_factory_sku_holding == 0:
 
         final = 100
 
     else:
-        final = sum_all / sum_actual
+        final = sum_all / sum_factory_sku_holding
     return final

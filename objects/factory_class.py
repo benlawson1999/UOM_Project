@@ -1,6 +1,5 @@
 import pgeocode
-from collections import Counter
-import random
+
 
 gb_pc = pgeocode.GeoDistance("GB")
 
@@ -8,7 +7,7 @@ gb_pc = pgeocode.GeoDistance("GB")
 class Factory:
     """Class to define a factory.
 
-    Box_Check: see if the factory is elgigible for a given order.
+    box_check: see if the factory is elgigible for a given order.
     consumer_distance: calcuates the Haversine distance between an order and the factory"""
 
     __slots__ = [
@@ -27,27 +26,27 @@ class Factory:
             setattr(self, key, value)
         self.eligible = None
 
-    def Box_check(self, box_in, demand):
+    def box_check(self, box_in, factory_demand):
         """function to check if a factory can complete an order"""
-        check = all(item in self.factory_inventory.keys() for item in (box_in.keys()))
+        check = all(sku in self.factory_inventory.keys() for sku in (box_in.keys()))
         # if this is true, see if they can do the order
-        fact_box = {}
-        if check == True:
+        factory_box = {}
+        if check is True:
             for ingredient in box_in:
-                if demand.get(self.factory_id) is None:
+                if factory_demand.get(self.factory_id) is None:
 
-                    demand[self.factory_id] = {}  # make a new entry
-                if demand[self.factory_id].get(ingredient) is None:
+                    factory_demand[self.factory_id] = {}  # make a new entry
+                if factory_demand[self.factory_id].get(ingredient) is None:
 
-                    demand[self.factory_id][ingredient] = 0
+                    factory_demand[self.factory_id][ingredient] = 0
 
-                fact_box[ingredient] = (
+                factory_box[ingredient] = (
                     self.factory_inventory[ingredient]
                     - box_in[ingredient]
-                    - demand[self.factory_id][ingredient]
+                    - factory_demand[self.factory_id][ingredient]
                 )
 
-            if all(value >= 0 for value in fact_box.values()) == True:
+            if all(value >= 0 for value in factory_box.values()) is True:
 
                 self.eligible = True
 

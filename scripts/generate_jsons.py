@@ -10,6 +10,7 @@ import random
 import json
 import numpy as np
 
+
 class NpEncoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, np.integer):
@@ -19,6 +20,7 @@ class NpEncoder(json.JSONEncoder):
         if isinstance(obj, np.ndarray):
             return obj.tolist()
         return super(NpEncoder, self).default(obj)
+
 
 gb_pc = pgeocode.GeoDistance("GB")
 
@@ -101,14 +103,14 @@ with open("./automatic_data/config_skus.json", "w") as outfile:
 factories_json = create_factories(n=2, ingredient_list=ingredients)
 
 with open("./automatic_data/config_factories.json", "w") as outfile:
-    json.dump(factories_json, outfile, indent=4,cls=NpEncoder)
+    json.dump(factories_json, outfile, indent=4, cls=NpEncoder)
 
 recipes_json = create_recipes(1)
 
 with open("./automatic_data/config_recipes.json", "w") as outfile:
-    json.dump(recipes_json, outfile, indent=4,cls=NpEncoder)
+    json.dump(recipes_json, outfile, indent=4, cls=NpEncoder)
 
 orders_json = create_orders(3)
 
 with open("./automatic_data/config_orders.json", "w") as outfile:
-    json.dump(orders_json, outfile, indent=4,cls=NpEncoder)
+    json.dump(orders_json, outfile, indent=4, cls=NpEncoder)

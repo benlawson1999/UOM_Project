@@ -41,13 +41,13 @@ class Order:
         order_total = {}
         for i in self.recipes:  # list of ids
 
-            for ingred in recipe_dict[i].complete:  # dict
-                if ingred in order_total:
+            for ingredients in recipe_dict[i].complete:  # dict
+                if ingredients in order_total:
                     # add the value to the current total in the whole order
-                    order_total[ingred] += recipe_dict[i].complete[ingred]
+                    order_total[ingredients] += recipe_dict[i].complete[ingredients]
                 else:
                     # create a new entry if theres not currently a entry
-                    order_total[ingred] = recipe_dict[i].complete[ingred]
+                    order_total[ingredients] = recipe_dict[i].complete[ingredients]
 
         for i in self.product:
 
@@ -72,11 +72,11 @@ class Order:
         """Calcuate the difference between the optimal and current distance."""
         if self.factory_id == None:
             return 100000
-        else:
-            self.difference_distance = (
-                factories_dict[self.factory_id].consumer_distance(self.postcode)
-                - self.optimal_distance
-            )
+
+        self.difference_distance = (
+            factories_dict[self.factory_id].consumer_distance(self.postcode)
+            - self.optimal_distance
+        )
         return self.difference_distance
 
     def eligibility_check(self, factories_dict: dict, demand: dict):
